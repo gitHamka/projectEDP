@@ -7,6 +7,11 @@ namespace projectEDP
             InitializeComponent();
         }
 
-       
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Staff Form = new Staff();
+            Form.ShowDialog();
+            this.Close();
+        }
     }
 }
