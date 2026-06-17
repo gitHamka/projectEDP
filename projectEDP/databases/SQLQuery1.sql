@@ -1,4 +1,4 @@
-CREATE TABLE users (
+﻿CREATE TABLE users (
     id INT IDENTITY(1,1) PRIMARY KEY,
     fullname VARCHAR(100),
     username VARCHAR(50),

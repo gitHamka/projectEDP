@@ -35,7 +35,7 @@
             txtboxSearch = new TextBox();
             lblSearch = new Label();
             cmbStatus = new ComboBox();
-            button1 = new Button();
+            btnRefresh = new Button();
             lblTotalOrder = new Label();
             lblJumlahOrder = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvOrderList).BeginInit();
@@ -113,15 +113,15 @@
             cmbStatus.TabIndex = 11;
             cmbStatus.SelectedIndexChanged += cmbStatus_SelectedIndexChanged;
             // 
-            // button1
+            // btnRefresh
             // 
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(847, 120);
-            button1.Name = "button1";
-            button1.Size = new Size(114, 46);
-            button1.TabIndex = 12;
-            button1.Text = "Refresh";
-            button1.UseVisualStyleBackColor = true;
+            btnRefresh.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnRefresh.Location = new Point(847, 120);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(114, 46);
+            btnRefresh.TabIndex = 12;
+            btnRefresh.Text = "Refresh";
+            btnRefresh.UseVisualStyleBackColor = true;
             // 
             // lblTotalOrder
             // 
@@ -151,7 +151,7 @@
             ClientSize = new Size(1130, 593);
             Controls.Add(lblJumlahOrder);
             Controls.Add(lblTotalOrder);
-            Controls.Add(button1);
+            Controls.Add(btnRefresh);
             Controls.Add(cmbStatus);
             Controls.Add(lblSearch);
             Controls.Add(txtboxSearch);
@@ -176,7 +176,7 @@
         private TextBox txtboxSearch;
         private Label lblSearch;
         private ComboBox cmbStatus;
-        private Button button1;
+        private Button btnRefresh;
         private Label lblTotalOrder;
         private Label lblJumlahOrder;
     }
