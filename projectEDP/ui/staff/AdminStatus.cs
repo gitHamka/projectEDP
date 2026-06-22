@@ -228,22 +228,89 @@ namespace projectEDP.ui.staff
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            // 1. Find the already open instance of Form1 to avoid duplicating it
             Form form1 = Application.OpenForms["Form1"];
-
             if (form1 != null)
             {
-                form1.Show(); // Bring back the existing Form1
+                form1.Show();
             }
             else
             {
-                // Fallback: If Form1 was closed completely, create a new one
                 Form1 newForm1 = new Form1();
                 newForm1.Show();
             }
-
-            // 2. Close this current AdminOrders form instead of hiding it to free up memory
             this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            // The higher the number, the more curved the corner
+            int cornerRadius = 30;
+
+            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
+
+            // Create a rounded rectangle path
+            path.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90);
+            path.AddArc(panel1.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90);
+            path.AddArc(panel1.Width - cornerRadius, panel1.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90);
+            path.AddArc(0, panel1.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90);
+            path.CloseAllFigures();
+
+            // Apply the curved shape to the panel
+            panel1.Region = new System.Drawing.Region(path);
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+            // The higher the number, the more curved the corner
+            int cornerRadius = 30;
+
+            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
+
+            // Create a rounded rectangle path
+            path.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90);
+            path.AddArc(panel1.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90);
+            path.AddArc(panel1.Width - cornerRadius, panel1.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90);
+            path.AddArc(0, panel1.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90);
+            path.CloseAllFigures();
+
+            // Apply the curved shape to the panel
+            panel1.Region = new System.Drawing.Region(path);
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+            // The higher the number, the more curved the corner
+            int cornerRadius = 30;
+
+            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
+
+            // Create a rounded rectangle path
+            path.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90);
+            path.AddArc(panel1.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90);
+            path.AddArc(panel1.Width - cornerRadius, panel1.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90);
+            path.AddArc(0, panel1.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90);
+            path.CloseAllFigures();
+
+            // Apply the curved shape to the panel
+            panel1.Region = new System.Drawing.Region(path);
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+            // The higher the number, the more curved the corner
+            int cornerRadius = 30;
+
+            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
+
+            // Create a rounded rectangle path
+            path.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90);
+            path.AddArc(panel1.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90);
+            path.AddArc(panel1.Width - cornerRadius, panel1.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90);
+            path.AddArc(0, panel1.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90);
+            path.CloseAllFigures();
+
+            // Apply the curved shape to the panel
+            panel1.Region = new System.Drawing.Region(path);
         }
     }
 }
