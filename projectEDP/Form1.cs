@@ -42,5 +42,11 @@ namespace projectEDP
             // 3. Hide the current Form1 (optional, so it stays in the background)
             this.Hide();
         }
+
+        private void llCreateAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Register form = new Register();
+            form.Show();
+        }
     }
 }

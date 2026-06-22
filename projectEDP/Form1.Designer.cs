@@ -160,6 +160,7 @@
             llCreateAccount.TabIndex = 11;
             llCreateAccount.TabStop = true;
             llCreateAccount.Text = "Create an Account";
+            llCreateAccount.LinkClicked += llCreateAccount_LinkClicked;
             // 
             // Form1
             // 
