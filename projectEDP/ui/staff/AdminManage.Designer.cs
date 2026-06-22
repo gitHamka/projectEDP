@@ -1,4 +1,4 @@
-namespace projectEDP.ui.staff
+﻿namespace projectEDP.ui.staff
 {
     partial class AdminManage
     {
@@ -68,4 +68,135 @@ namespace projectEDP.ui.staff
             label3.Name = "label3";
             label3.Size = new Size(76, 20);
             label3.TabIndex = 2;
-            label3.Text = "Full Name
+            label3.Text = "Full Name";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(12, 322);
+            label4.Name = "label4";
+            label4.Size = new Size(62, 20);
+            label4.TabIndex = 3;
+            label4.Text = "Address";
+            // 
+            // txtCustomerID
+            // 
+            txtCustomerID.Location = new Point(12, 94);
+            txtCustomerID.Name = "txtCustomerID";
+            txtCustomerID.Size = new Size(658, 27);
+            txtCustomerID.TabIndex = 4;
+            txtCustomerID.Leave += txtCustomerID_Leave;
+            // 
+            // txtPhone
+            // 
+            txtPhone.Location = new Point(12, 254);
+            txtPhone.Name = "txtPhone";
+            txtPhone.Size = new Size(658, 27);
+            txtPhone.TabIndex = 5;
+            // 
+            // txtFullName
+            // 
+            txtFullName.Location = new Point(12, 169);
+            txtFullName.Name = "txtFullName";
+            txtFullName.Size = new Size(658, 27);
+            txtFullName.TabIndex = 6;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(12, 231);
+            label5.Name = "label5";
+            label5.Size = new Size(50, 20);
+            label5.TabIndex = 7;
+            label5.Text = "Phone";
+            // 
+            // txtAddress
+            // 
+            txtAddress.Location = new Point(12, 345);
+            txtAddress.Name = "txtAddress";
+            txtAddress.Size = new Size(658, 120);
+            txtAddress.TabIndex = 8;
+            txtAddress.Text = "";
+            // 
+            // btnSave
+            // 
+            btnSave.Location = new Point(12, 491);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(215, 29);
+            btnSave.TabIndex = 9;
+            btnSave.Text = "Save";
+            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
+            // 
+            // btnClear
+            // 
+            btnClear.Location = new Point(234, 491);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(215, 29);
+            btnClear.TabIndex = 10;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(455, 491);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(215, 29);
+            btnDelete.TabIndex = 11;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // btnHome
+            // 
+            btnHome.Location = new Point(12, 541);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(658, 29);
+            btnHome.TabIndex = 12;
+            btnHome.Text = "Home";
+            btnHome.UseVisualStyleBackColor = true;
+            btnHome.Click += btnHome_Click;
+            // 
+            // AdminManage
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(682, 582);
+            Controls.Add(btnHome);
+            Controls.Add(btnDelete);
+            Controls.Add(btnClear);
+            Controls.Add(btnSave);
+            Controls.Add(txtAddress);
+            Controls.Add(label5);
+            Controls.Add(txtFullName);
+            Controls.Add(txtPhone);
+            Controls.Add(txtCustomerID);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Name = "AdminManage";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "AdminManage";
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private TextBox txtCustomerID;
+        private TextBox txtPhone;
+        private TextBox txtFullName;
+        private Label label5;
+        private RichTextBox txtAddress;
+        private Button btnSave;
+        private Button btnClear;
+        private Button btnDelete;
+        private Button btnHome;
+    }
+}

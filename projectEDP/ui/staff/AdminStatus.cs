@@ -63,12 +63,12 @@ namespace projectEDP.ui.staff
 
         private void LoadActiveOrdersGrid()
         {
-            string query = @"SELECT o.order_id AS ""Order ID"", c.full_name AS ""Customer"", 
-                                    s.service_name AS ""Service"", o.status AS ""Status"", 
+            // CHANGED: Reading direct text column 'services' and joining to 'users' via 'user_id'
+            string query = @"SELECT o.order_id AS ""Order ID"", u.full_name AS ""Customer"", 
+                                    o.services AS ""Service"", o.status AS ""Status"", 
                                     o.date_in AS ""Date In""
                              FROM orders o
-                             JOIN customers c ON o.customer_id = c.customer_id
-                             JOIN services s ON o.service_id = s.service_id
+                             JOIN users u ON o.customer_id = u.user_id
                              WHERE o.status != 'Completed'
                              ORDER BY o.date_in DESC;";
             try
@@ -91,10 +91,11 @@ namespace projectEDP.ui.staff
 
         private void LoadOverdueOrdersGrid()
         {
-            string query = @"SELECT o.order_id AS ""Order ID"", c.full_name AS ""Customer"", 
+            // CHANGED: Joined with 'users' on 'user_id'
+            string query = @"SELECT o.order_id AS ""Order ID"", u.full_name AS ""Customer"", 
                                     (CURRENT_DATE - o.date_in::date) AS ""Days Overdue""
                              FROM orders o
-                             JOIN customers c ON o.customer_id = c.customer_id
+                             JOIN users u ON o.customer_id = u.user_id
                              WHERE o.status NOT IN ('Completed', 'Ready for pickup') 
                                AND (CURRENT_DATE - o.date_in::date) >= 1
                              ORDER BY ""Days Overdue"" DESC;";
@@ -166,7 +167,7 @@ namespace projectEDP.ui.staff
                         {
                             MessageBox.Show($"Order status updated to '{finalStatus}' successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             ClearFields();
-                            RefreshDashboard(); // Instantly update counters and tables
+                            RefreshDashboard();
                         }
                     }
                 }
@@ -186,10 +187,10 @@ namespace projectEDP.ui.staff
         {
             if (string.IsNullOrWhiteSpace(txtSearchOrderID.Text)) return;
 
-            string query = @"SELECT c.full_name, s.service_name, o.status, o.notes 
+            // CHANGED: Updated target parameters to select 'services' directly 
+            string query = @"SELECT u.full_name, o.services, o.status, o.notes 
                              FROM orders o
-                             JOIN customers c ON o.customer_id = c.customer_id
-                             JOIN services s ON o.service_id = s.service_id
+                             JOIN users u ON o.customer_id = u.user_id
                              WHERE o.order_id = @orderId;";
 
             try
@@ -206,10 +207,10 @@ namespace projectEDP.ui.staff
                             if (reader.Read())
                             {
                                 txtCustomerName.Text = reader["full_name"].ToString();
-                                txtServiceType.Text = reader["service_name"].ToString();
-                                txtCurrentStatus.Text = reader["status"].ToString(); // Fills your read-only TextBox
+                                txtServiceType.Text = reader["services"].ToString();
+                                txtCurrentStatus.Text = reader["status"].ToString();
                                 txtNotes.Text = reader["notes"] != DBNull.Value ? reader["notes"].ToString() : "";
-                                cmbNewStatus.SelectedIndex = -1; // Keep new choice clear initially
+                                cmbNewStatus.SelectedIndex = -1;
                             }
                             else
                             {

@@ -35,14 +35,14 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
-            button1 = new Button();
-            linkLabel1 = new LinkLabel();
+            txtUsername = new TextBox();
+            txtName = new TextBox();
+            txtPhone = new TextBox();
+            txtPassword = new TextBox();
+            txtEmail = new TextBox();
+            txtAddress = new TextBox();
+            btnRegister = new Button();
+            lblLogin = new LinkLabel();
             pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -113,89 +113,90 @@
             label6.TabIndex = 5;
             label6.Text = "Address :";
             // 
-            // textBox1
+            // txtUsername
             // 
-            textBox1.BackColor = SystemColors.Window;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.ForeColor = SystemColors.WindowText;
-            textBox1.Location = new Point(120, 275);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(170, 20);
-            textBox1.TabIndex = 6;
+            txtUsername.BackColor = SystemColors.Window;
+            txtUsername.BorderStyle = BorderStyle.None;
+            txtUsername.ForeColor = SystemColors.WindowText;
+            txtUsername.Location = new Point(120, 275);
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(170, 20);
+            txtUsername.TabIndex = 6;
             // 
-            // textBox2
+            // txtName
             // 
-            textBox2.BackColor = SystemColors.Window;
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.ForeColor = SystemColors.WindowText;
-            textBox2.Location = new Point(120, 327);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(170, 20);
-            textBox2.TabIndex = 7;
+            txtName.BackColor = SystemColors.Window;
+            txtName.BorderStyle = BorderStyle.None;
+            txtName.ForeColor = SystemColors.WindowText;
+            txtName.Location = new Point(120, 327);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(170, 20);
+            txtName.TabIndex = 7;
             // 
-            // textBox3
+            // txtPhone
             // 
-            textBox3.BackColor = SystemColors.Window;
-            textBox3.BorderStyle = BorderStyle.None;
-            textBox3.ForeColor = SystemColors.WindowText;
-            textBox3.Location = new Point(120, 373);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(170, 20);
-            textBox3.TabIndex = 8;
-            textBox3.TextChanged += textBox3_TextChanged;
+            txtPhone.BackColor = SystemColors.Window;
+            txtPhone.BorderStyle = BorderStyle.None;
+            txtPhone.ForeColor = SystemColors.WindowText;
+            txtPhone.Location = new Point(120, 373);
+            txtPhone.Name = "txtPhone";
+            txtPhone.Size = new Size(170, 20);
+            txtPhone.TabIndex = 8;
+            txtPhone.TextChanged += textBox3_TextChanged;
             // 
-            // textBox4
+            // txtPassword
             // 
-            textBox4.BackColor = SystemColors.Window;
-            textBox4.BorderStyle = BorderStyle.None;
-            textBox4.ForeColor = SystemColors.WindowText;
-            textBox4.Location = new Point(446, 275);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(185, 20);
-            textBox4.TabIndex = 9;
+            txtPassword.BackColor = SystemColors.Window;
+            txtPassword.BorderStyle = BorderStyle.None;
+            txtPassword.ForeColor = SystemColors.WindowText;
+            txtPassword.Location = new Point(446, 275);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(185, 20);
+            txtPassword.TabIndex = 9;
             // 
-            // textBox5
+            // txtEmail
             // 
-            textBox5.BackColor = SystemColors.Window;
-            textBox5.BorderStyle = BorderStyle.None;
-            textBox5.ForeColor = SystemColors.WindowText;
-            textBox5.Location = new Point(446, 324);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(185, 20);
-            textBox5.TabIndex = 10;
+            txtEmail.BackColor = SystemColors.Window;
+            txtEmail.BorderStyle = BorderStyle.None;
+            txtEmail.ForeColor = SystemColors.WindowText;
+            txtEmail.Location = new Point(446, 324);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(185, 20);
+            txtEmail.TabIndex = 10;
             // 
-            // textBox6
+            // txtAddress
             // 
-            textBox6.BackColor = SystemColors.Window;
-            textBox6.BorderStyle = BorderStyle.None;
-            textBox6.ForeColor = SystemColors.WindowText;
-            textBox6.Location = new Point(446, 368);
-            textBox6.Multiline = true;
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(185, 168);
-            textBox6.TabIndex = 11;
+            txtAddress.BackColor = SystemColors.Window;
+            txtAddress.BorderStyle = BorderStyle.None;
+            txtAddress.ForeColor = SystemColors.WindowText;
+            txtAddress.Location = new Point(446, 368);
+            txtAddress.Multiline = true;
+            txtAddress.Name = "txtAddress";
+            txtAddress.Size = new Size(185, 168);
+            txtAddress.TabIndex = 11;
             // 
-            // button1
+            // btnRegister
             // 
-            button1.FlatStyle = FlatStyle.System;
-            button1.ForeColor = SystemColors.Window;
-            button1.Location = new Point(537, 597);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 12;
-            button1.Text = "Register";
-            button1.UseVisualStyleBackColor = true;
+            btnRegister.FlatStyle = FlatStyle.System;
+            btnRegister.ForeColor = SystemColors.Window;
+            btnRegister.Location = new Point(537, 597);
+            btnRegister.Name = "btnRegister";
+            btnRegister.Size = new Size(94, 29);
+            btnRegister.TabIndex = 12;
+            btnRegister.Text = "Register";
+            btnRegister.UseVisualStyleBackColor = true;
+            btnRegister.Click += btnRegister_Click;
             // 
-            // linkLabel1
+            // lblLogin
             // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.LinkColor = Color.White;
-            linkLabel1.Location = new Point(353, 601);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(178, 20);
-            linkLabel1.TabIndex = 13;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Already have an account?";
+            lblLogin.AutoSize = true;
+            lblLogin.LinkColor = Color.White;
+            lblLogin.Location = new Point(353, 601);
+            lblLogin.Name = "lblLogin";
+            lblLogin.Size = new Size(178, 20);
+            lblLogin.TabIndex = 13;
+            lblLogin.TabStop = true;
+            lblLogin.Text = "Already have an account?";
             // 
             // pictureBox1
             // 
@@ -214,14 +215,14 @@
             BackColor = Color.MidnightBlue;
             ClientSize = new Size(682, 698);
             Controls.Add(pictureBox1);
-            Controls.Add(linkLabel1);
-            Controls.Add(button1);
-            Controls.Add(textBox6);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(lblLogin);
+            Controls.Add(btnRegister);
+            Controls.Add(txtAddress);
+            Controls.Add(txtEmail);
+            Controls.Add(txtPassword);
+            Controls.Add(txtPhone);
+            Controls.Add(txtName);
+            Controls.Add(txtUsername);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -243,14 +244,14 @@
         private Label label4;
         private Label label5;
         private Label label6;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private TextBox textBox6;
-        private Button button1;
-        private LinkLabel linkLabel1;
+        private TextBox txtUsername;
+        private TextBox txtName;
+        private TextBox txtPhone;
+        private TextBox txtPassword;
+        private TextBox txtEmail;
+        private TextBox txtAddress;
+        private Button btnRegister;
+        private LinkLabel lblLogin;
         private PictureBox pictureBox1;
     }
 }
