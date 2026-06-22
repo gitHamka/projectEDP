@@ -29,9 +29,7 @@ namespace projectEDP
         private void InitializeComponent()
         {
             button1 = new Button();
-            button2 = new Button();
             button3 = new Button();
-            dateTimePicker1 = new DateTimePicker();
             pbLogo = new PictureBox();
             Title = new Label();
             txtUsername = new TextBox();
@@ -45,7 +43,7 @@ namespace projectEDP
             // 
             // button1
             // 
-            button1.Location = new Point(31, 811);
+            button1.Location = new Point(220, 770);
             button1.Name = "button1";
             button1.Size = new Size(224, 29);
             button1.TabIndex = 0;
@@ -53,19 +51,9 @@ namespace projectEDP
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // button2
-            // 
-            button2.Location = new Point(31, 846);
-            button2.Name = "button2";
-            button2.Size = new Size(224, 29);
-            button2.TabIndex = 1;
-            button2.Text = "Go to AdminOrders";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
             // button3
             // 
-            button3.Location = new Point(31, 881);
+            button3.Location = new Point(220, 840);
             button3.Name = "button3";
             button3.Size = new Size(224, 29);
             button3.TabIndex = 2;
@@ -73,19 +61,12 @@ namespace projectEDP
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(411, 881);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(250, 27);
-            dateTimePicker1.TabIndex = 3;
-            // 
             // pbLogo
             // 
             pbLogo.Image = Properties.Resources.logo;
-            pbLogo.Location = new Point(194, 137);
+            pbLogo.Location = new Point(12, 51);
             pbLogo.Name = "pbLogo";
-            pbLogo.Size = new Size(295, 439);
+            pbLogo.Size = new Size(662, 551);
             pbLogo.SizeMode = PictureBoxSizeMode.Zoom;
             pbLogo.TabIndex = 4;
             pbLogo.TabStop = false;
@@ -93,9 +74,9 @@ namespace projectEDP
             // Title
             // 
             Title.AutoSize = true;
-            Title.Font = new Font("Arial Rounded MT Bold", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Title.Font = new Font("Arial Rounded MT Bold", 19.8000011F, FontStyle.Italic, GraphicsUnit.Point, 0);
             Title.ForeColor = Color.White;
-            Title.Location = new Point(176, 72);
+            Title.Location = new Point(183, 9);
             Title.Name = "Title";
             Title.Size = new Size(325, 39);
             Title.TabIndex = 5;
@@ -104,7 +85,7 @@ namespace projectEDP
             // txtUsername
             // 
             txtUsername.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtUsername.Location = new Point(273, 608);
+            txtUsername.Location = new Point(292, 624);
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(216, 30);
             txtUsername.TabIndex = 6;
@@ -112,7 +93,7 @@ namespace projectEDP
             // txtPassword
             // 
             txtPassword.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtPassword.Location = new Point(273, 654);
+            txtPassword.Location = new Point(292, 660);
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(216, 30);
             txtPassword.TabIndex = 7;
@@ -123,7 +104,7 @@ namespace projectEDP
             lblUsername.AutoSize = true;
             lblUsername.Font = new Font("Arial", 12F);
             lblUsername.ForeColor = Color.White;
-            lblUsername.Location = new Point(162, 611);
+            lblUsername.Location = new Point(151, 627);
             lblUsername.Name = "lblUsername";
             lblUsername.Size = new Size(105, 23);
             lblUsername.TabIndex = 8;
@@ -134,7 +115,7 @@ namespace projectEDP
             lblPassword.AutoSize = true;
             lblPassword.Font = new Font("Arial", 12F);
             lblPassword.ForeColor = Color.White;
-            lblPassword.Location = new Point(163, 657);
+            lblPassword.Location = new Point(151, 667);
             lblPassword.Name = "lblPassword";
             lblPassword.Size = new Size(104, 23);
             lblPassword.TabIndex = 9;
@@ -142,21 +123,22 @@ namespace projectEDP
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(395, 701);
+            btnLogin.Location = new Point(414, 698);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(94, 29);
             btnLogin.TabIndex = 10;
             btnLogin.Text = "Log in";
             btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.Click += btnLogin_Click;
             // 
             // llCreateAccount
             // 
             llCreateAccount.AutoSize = true;
-            llCreateAccount.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            llCreateAccount.Font = new Font("Arial", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             llCreateAccount.LinkColor = Color.White;
-            llCreateAccount.Location = new Point(162, 711);
+            llCreateAccount.Location = new Point(292, 705);
             llCreateAccount.Name = "llCreateAccount";
-            llCreateAccount.Size = new Size(145, 19);
+            llCreateAccount.Size = new Size(114, 16);
             llCreateAccount.TabIndex = 11;
             llCreateAccount.TabStop = true;
             llCreateAccount.Text = "Create an Account";
@@ -176,9 +158,7 @@ namespace projectEDP
             Controls.Add(txtUsername);
             Controls.Add(Title);
             Controls.Add(pbLogo);
-            Controls.Add(dateTimePicker1);
             Controls.Add(button3);
-            Controls.Add(button2);
             Controls.Add(button1);
             Name = "Form1";
             Text = "Form1";
@@ -190,9 +170,7 @@ namespace projectEDP
         #endregion
 
         private Button button1;
-        private Button button2;
         private Button button3;
-        private DateTimePicker dateTimePicker1;
         private PictureBox pbLogo;
         private Label Title;
         private TextBox txtUsername;

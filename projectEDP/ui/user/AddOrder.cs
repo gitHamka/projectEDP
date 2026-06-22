@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Npgsql;
+using projectEDP.core.database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,14 +12,111 @@ namespace projectEDP
 {
     public partial class AddOrder : Form
     {
-        public AddOrder()
+        private decimal totalAmount = 0.00m;
+        private int currentCustomerId;
+
+        public AddOrder(int customerId)
         {
             InitializeComponent();
+            this.currentCustomerId = customerId;
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void AddOrder_Load(object sender, EventArgs e)
         {
+            lblTotal.Text = "RM 0.00";
+        }
 
+        private void CalculateTotal()
+        {
+            // Fallback validation to ensure elements are instantiated and explicitly selected
+            if (cmbService == null || cmbCategory == null || lblTotal == null) return;
+            if (cmbService.SelectedIndex == -1 || cmbCategory.SelectedIndex == -1)
+            {
+                lblTotal.Text = "RM 0.00";
+                totalAmount = 0.00m;
+                return;
+            }
+
+            // 1. Get Base Service Price
+            decimal basePrice = 0.00m;
+            string selectedService = cmbService.SelectedItem?.ToString() ?? "";
+
+            if (selectedService == "Wash") basePrice = 8.00m;
+            else if (selectedService == "Wash and Dry") basePrice = 16.00m;
+            else if (selectedService == "Wash and Dry and Fold") basePrice = 25.00m;
+
+            // 2. Apply Category Size Modifier
+            decimal multiplier = 1.00m;
+            string selectedCategory = cmbCategory.SelectedItem?.ToString() ?? "";
+
+            if (selectedCategory == "Medium") multiplier = 1.20m;
+            else if (selectedCategory == "Large") multiplier = 1.50m;
+
+            // 3. Compute and display final price
+            totalAmount = basePrice * multiplier;
+            lblTotal.Text = $"RM {totalAmount:F2}";
+        }
+
+        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalculateTotal();
+        }
+
+        private void cmbService_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalculateTotal();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (cmbCategory == null || cmbCategory.SelectedIndex == -1 ||
+        cmbService == null || cmbService.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select both a category and a service type.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Fallback safe check for customer ID constraint properties
+            if (currentCustomerId <= 0)
+            {
+                MessageBox.Show("Invalid session context. Please log in again.", "Session Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Generate a unique Order ID string sequence
+            string orderId = "ORD-" + DateTime.Now.ToString("yyyyMMddHHmmss");
+
+            string query = @"INSERT INTO orders (order_id, customer_id, category, services, total_price, notes, status) 
+                     VALUES (@orderId, @customerId, @category, @services, @totalPrice, @notes, @status);";
+
+            try
+            {
+                using (NpgsqlConnection conn = DatabaseHelper.GetConnection())
+                {
+                    conn.Open();
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@orderId", orderId);
+                        cmd.Parameters.AddWithValue("@customerId", currentCustomerId);
+                        cmd.Parameters.AddWithValue("@category", cmbCategory.SelectedItem.ToString());
+                        cmd.Parameters.AddWithValue("@services", cmbService.SelectedItem.ToString());
+                        cmd.Parameters.AddWithValue("@totalPrice", totalAmount);
+                        cmd.Parameters.AddWithValue("@notes", (txtNotes == null || string.IsNullOrWhiteSpace(txtNotes.Text)) ? (object)DBNull.Value : txtNotes.Text.Trim());
+                        cmd.Parameters.AddWithValue("@status", "Pending");
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                // FIX: Added 'this.currentCustomerId' as the third argument matching the new constructor signature
+                ProceedPayment paymentForm = new ProceedPayment(orderId, totalAmount, this.currentCustomerId);
+                paymentForm.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to save order draft: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
