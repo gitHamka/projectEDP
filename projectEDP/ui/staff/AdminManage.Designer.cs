@@ -81,24 +81,33 @@
             // 
             // txtCustomerID
             // 
+            txtCustomerID.BackColor = SystemColors.ControlDarkDark;
+            txtCustomerID.BorderStyle = BorderStyle.None;
+            txtCustomerID.ForeColor = SystemColors.Window;
             txtCustomerID.Location = new Point(12, 94);
             txtCustomerID.Name = "txtCustomerID";
-            txtCustomerID.Size = new Size(658, 27);
+            txtCustomerID.Size = new Size(658, 20);
             txtCustomerID.TabIndex = 4;
             txtCustomerID.Leave += txtCustomerID_Leave;
             // 
             // txtPhone
             // 
+            txtPhone.BackColor = SystemColors.ControlDarkDark;
+            txtPhone.BorderStyle = BorderStyle.None;
+            txtPhone.ForeColor = SystemColors.Window;
             txtPhone.Location = new Point(12, 254);
             txtPhone.Name = "txtPhone";
-            txtPhone.Size = new Size(658, 27);
+            txtPhone.Size = new Size(658, 20);
             txtPhone.TabIndex = 5;
             // 
             // txtFullName
             // 
+            txtFullName.BackColor = SystemColors.ControlDarkDark;
+            txtFullName.BorderStyle = BorderStyle.None;
+            txtFullName.ForeColor = SystemColors.Window;
             txtFullName.Location = new Point(12, 169);
             txtFullName.Name = "txtFullName";
-            txtFullName.Size = new Size(658, 27);
+            txtFullName.Size = new Size(658, 20);
             txtFullName.TabIndex = 6;
             // 
             // label5
@@ -112,6 +121,9 @@
             // 
             // txtAddress
             // 
+            txtAddress.BackColor = SystemColors.ControlDarkDark;
+            txtAddress.BorderStyle = BorderStyle.None;
+            txtAddress.ForeColor = SystemColors.Window;
             txtAddress.Location = new Point(12, 345);
             txtAddress.Name = "txtAddress";
             txtAddress.Size = new Size(658, 120);
@@ -120,12 +132,16 @@
             // 
             // btnSave
             // 
+            btnSave.BackColor = SystemColors.ControlDarkDark;
+            btnSave.FlatStyle = FlatStyle.Flat;
+            btnSave.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSave.ForeColor = SystemColors.Window;
             btnSave.Location = new Point(12, 491);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(215, 29);
             btnSave.TabIndex = 9;
             btnSave.Text = "Save";
-            btnSave.UseVisualStyleBackColor = true;
+            btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += btnSave_Click;
             // 
             // btnClear
