@@ -2,10 +2,14 @@ using Npgsql;
 
 namespace projectEDP
 {
-    public partial class Form1 : Form
+    public partial class Customer : Form
     {
+<<<<<<< HEAD:projectEDP/Customer.cs
+        public Customer()
+=======
         string connStr = "Host=aws-1-ap-northeast-1.pooler.supabase.com;Port=6543;Database=postgres;Username=postgres.cveiuqrnmdidjdjknnwe;Password=pEDPpasswwrd;SSL Mode=Require;Trust Server Certificate=true";
         public Form1()
+>>>>>>> fb1019bb743cb526f63ce151f651f932cc23e9d0:projectEDP/Form1.cs
         {
             InitializeComponent();
         }
