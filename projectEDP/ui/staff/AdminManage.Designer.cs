@@ -46,45 +46,36 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Arial Rounded MT Bold", 16.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(168, 21);
+            label1.Location = new Point(250, 25);
             label1.Name = "label1";
-            label1.Size = new Size(333, 32);
+            label1.Size = new Size(164, 20);
             label1.TabIndex = 0;
             label1.Text = "Customer Management";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ButtonHighlight;
             label2.Location = new Point(12, 71);
             label2.Name = "label2";
-            label2.Size = new Size(99, 17);
+            label2.Size = new Size(91, 20);
             label2.TabIndex = 1;
             label2.Text = "Customer ID";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.ForeColor = SystemColors.ButtonHighlight;
             label3.Location = new Point(12, 146);
             label3.Name = "label3";
-            label3.Size = new Size(80, 17);
+            label3.Size = new Size(76, 20);
             label3.TabIndex = 2;
             label3.Text = "Full Name";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.ForeColor = SystemColors.ButtonHighlight;
             label4.Location = new Point(12, 322);
             label4.Name = "label4";
-            label4.Size = new Size(69, 17);
+            label4.Size = new Size(62, 20);
             label4.TabIndex = 3;
             label4.Text = "Address";
             // 
@@ -113,11 +104,9 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.ForeColor = SystemColors.ButtonHighlight;
             label5.Location = new Point(12, 231);
             label5.Name = "label5";
-            label5.Size = new Size(54, 17);
+            label5.Size = new Size(50, 20);
             label5.TabIndex = 7;
             label5.Text = "Phone";
             // 
@@ -173,7 +162,6 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.MidnightBlue;
             ClientSize = new Size(682, 582);
             Controls.Add(btnHome);
             Controls.Add(btnDelete);
