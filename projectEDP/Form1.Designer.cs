@@ -1,4 +1,4 @@
-﻿namespace projectEDP
+namespace projectEDP
 {
     partial class Form1
     {

@@ -1,4 +1,4 @@
-﻿namespace projectEDP.ui.user
+namespace projectEDP.ui.user
 {
     partial class UserBooking
     {
