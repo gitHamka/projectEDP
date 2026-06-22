@@ -1,6 +1,7 @@
 using Npgsql;
 using projectEDP.core.database;
 using projectEDP.ui.staff;
+using projectEDP.ui.user;
 
 namespace projectEDP
 {
@@ -22,19 +23,7 @@ namespace projectEDP
             // 3. Hide the current Form1 (optional, so it stays in the background)
             this.Hide();
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            // 1. Create an instance of the AdminManage form
-            projectEDP.ui.staff.AdminOrders adminManageForm = new projectEDP.ui.staff.AdminOrders();
-
-            // 2. Show the AdminManage form
-            adminManageForm.Show();
-
-            // 3. Hide the current Form1 (optional, so it stays in the background)
-            this.Hide();
-        }
-
+        
         private void button3_Click(object sender, EventArgs e)
         {
             // 1. Create an instance of the AdminManage form
@@ -62,7 +51,7 @@ namespace projectEDP
                 return;
             }
 
-            // 2. Updated SQL query to retrieve both user_id and role matching the credentials
+            // 2. SQL query to retrieve user_id and role matching credentials
             string query = "SELECT user_id, role FROM users WHERE username = @username AND password = @password;";
 
             try
@@ -75,20 +64,19 @@ namespace projectEDP
                         cmd.Parameters.AddWithValue("@username", txtUsername.Text.Trim());
                         cmd.Parameters.AddWithValue("@password", txtPassword.Text.Trim());
 
-                        // 3. Use ExecuteReader to read multiple columns from the matching database row
+                        // 3. Use ExecuteReader to read database row details
                         using (NpgsqlDataReader reader = cmd.ExecuteReader())
                         {
                             if (reader.Read())
                             {
-                                // Extract columns from the row returned by Supabase
                                 int userId = Convert.ToInt32(reader["user_id"]);
                                 string role = reader["role"].ToString().ToLower();
 
                                 if (role == "customer")
                                 {
-                                    // 4. Pass the extracted userId directly into the AddOrder constructor
-                                    AddOrder customerForm = new AddOrder(userId);
-                                    customerForm.Show();
+                                    // Redirect to UserDashboard instead of AddOrder
+                                    UserDashboard dashboardForm = new UserDashboard(userId);
+                                    dashboardForm.Show();
                                     this.Hide();
                                 }
                                 else if (role == "admin" || role == "staff")

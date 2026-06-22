@@ -1,5 +1,6 @@
 ﻿using Npgsql;
 using projectEDP.core.database;
+using projectEDP.ui.user;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,12 +15,14 @@ namespace projectEDP
     {
         private string currentOrderId;
         private decimal currentTotalAmount;
-        public ProceedPayment(string orderId, decimal totalAmount)
+        private int currentCustomerId;
+        public ProceedPayment(string orderId, decimal totalAmount, int customerId)
         {
             InitializeComponent();
 
             this.currentOrderId = orderId;
             this.currentTotalAmount = totalAmount;
+            this.currentCustomerId = customerId;
         }
 
         private void ProceedPayment_Load(object sender, EventArgs e)
@@ -76,45 +79,26 @@ namespace projectEDP
         private void btnProceed_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Proceeding to payment gateway...", "Sila Bayar di Kaunter", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            UserDashboard dashboardForm = new UserDashboard(this.currentCustomerId);
+            dashboardForm.Show();
+
+            // Close the current payment window
+            this.Close();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            string query = "SELECT customer_id FROM orders WHERE order_id = @orderId;";
-            int customerId = 0;
-
-            try
+            // Uses the currentCustomerId stored during form initialization instead of querying the database
+            if (this.currentCustomerId > 0)
             {
-                using (NpgsqlConnection conn = DatabaseHelper.GetConnection())
-                {
-                    conn.Open();
-                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@orderId", currentOrderId);
-                        object result = cmd.ExecuteScalar();
-
-                        if (result != null)
-                        {
-                            customerId = Convert.ToInt32(result);
-                        }
-                    }
-                }
-
-                // If a valid customer ID was recovered, reopen the AddOrder form with it
-                if (customerId > 0)
-                {
-                    AddOrder orderForm = new AddOrder(customerId);
-                    orderForm.Show();
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Could not find customer profile context for this session.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                AddOrder orderForm = new AddOrder(this.currentCustomerId);
+                orderForm.Show();
+                this.Close();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"Error returning to previous form: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Could not find customer profile context for this session.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

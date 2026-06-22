@@ -33,13 +33,11 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
-            label5 = new Label();
             label6 = new Label();
             txtUsername = new TextBox();
             txtName = new TextBox();
             txtPhone = new TextBox();
             txtPassword = new TextBox();
-            txtEmail = new TextBox();
             txtAddress = new TextBox();
             btnRegister = new Button();
             lblLogin = new LinkLabel();
@@ -90,17 +88,6 @@
             label4.Size = new Size(89, 17);
             label4.TabIndex = 3;
             label4.Text = "Password :";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.ForeColor = SystemColors.Window;
-            label5.Location = new Point(383, 322);
-            label5.Name = "label5";
-            label5.Size = new Size(57, 17);
-            label5.TabIndex = 4;
-            label5.Text = "Email :";
             // 
             // label6
             // 
@@ -154,16 +141,6 @@
             txtPassword.Size = new Size(185, 20);
             txtPassword.TabIndex = 9;
             // 
-            // txtEmail
-            // 
-            txtEmail.BackColor = SystemColors.Window;
-            txtEmail.BorderStyle = BorderStyle.None;
-            txtEmail.ForeColor = SystemColors.WindowText;
-            txtEmail.Location = new Point(446, 324);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(185, 20);
-            txtEmail.TabIndex = 10;
-            // 
             // txtAddress
             // 
             txtAddress.BackColor = SystemColors.Window;
@@ -197,6 +174,7 @@
             lblLogin.TabIndex = 13;
             lblLogin.TabStop = true;
             lblLogin.Text = "Already have an account?";
+            lblLogin.LinkClicked += lblLogin_LinkClicked;
             // 
             // pictureBox1
             // 
@@ -218,13 +196,11 @@
             Controls.Add(lblLogin);
             Controls.Add(btnRegister);
             Controls.Add(txtAddress);
-            Controls.Add(txtEmail);
             Controls.Add(txtPassword);
             Controls.Add(txtPhone);
             Controls.Add(txtName);
             Controls.Add(txtUsername);
             Controls.Add(label6);
-            Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -242,13 +218,11 @@
         private Label label2;
         private Label label3;
         private Label label4;
-        private Label label5;
         private Label label6;
         private TextBox txtUsername;
         private TextBox txtName;
         private TextBox txtPhone;
         private TextBox txtPassword;
-        private TextBox txtEmail;
         private TextBox txtAddress;
         private Button btnRegister;
         private LinkLabel lblLogin;

@@ -29,16 +29,15 @@ namespace projectEDP
                 string.IsNullOrWhiteSpace(txtName.Text) ||
                 string.IsNullOrWhiteSpace(txtPhone.Text) ||
                 string.IsNullOrWhiteSpace(txtPassword.Text) ||
-                string.IsNullOrWhiteSpace(txtEmail.Text) ||
                 string.IsNullOrWhiteSpace(txtAddress.Text))
             {
                 MessageBox.Show("Please fill up all fields before registering.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // 2. SQL Insert Query targeting your users/staff table in Supabase
-            string query = @"INSERT INTO users (username, full_name, phone, password, email, address) 
-                             VALUES (@username, @name, @phone, @password, @email, @address);";
+            // 2. FIXED: Removed 'email' column and '@email' parameter from the schema insert text
+            string query = @"INSERT INTO users (username, full_name, phone, password, address) 
+                 VALUES (@username, @name, @phone, @password, @address);";
 
             try
             {
@@ -51,8 +50,7 @@ namespace projectEDP
                         cmd.Parameters.AddWithValue("@username", txtUsername.Text.Trim());
                         cmd.Parameters.AddWithValue("@name", txtName.Text.Trim());
                         cmd.Parameters.AddWithValue("@phone", txtPhone.Text.Trim());
-                        cmd.Parameters.AddWithValue("@password", txtPassword.Text.Trim()); // Note: Plain text for assignment purposes
-                        cmd.Parameters.AddWithValue("@email", txtEmail.Text.Trim());
+                        cmd.Parameters.AddWithValue("@password", txtPassword.Text.Trim());
                         cmd.Parameters.AddWithValue("@address", txtAddress.Text.Trim());
 
                         int result = cmd.ExecuteNonQuery();
@@ -62,9 +60,17 @@ namespace projectEDP
                             MessageBox.Show("Registration successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             ClearForm();
 
-                            // Navigate back to the Login form (assuming it is Form1)
+                            // Navigate back to the Login form safely
                             Form form1 = Application.OpenForms["Form1"];
-                            if (form1 != null) form1.Show();
+                            if (form1 != null)
+                            {
+                                form1.Show();
+                            }
+                            else
+                            {
+                                Form1 newForm1 = new Form1();
+                                newForm1.Show();
+                            }
                             this.Close();
                         }
                     }
@@ -82,7 +88,6 @@ namespace projectEDP
             txtName.Clear();
             txtPhone.Clear();
             txtPassword.Clear();
-            txtEmail.Clear();
             txtAddress.Clear();
         }
 
@@ -90,6 +95,18 @@ namespace projectEDP
         {
             Form form1 = Application.OpenForms["Form1"];
             if (form1 != null) form1.Show();
+            this.Close();
+        }
+
+        private void lblLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // 1. Instantiate the login form
+            Form1 loginForm = new Form1();
+
+            // 2. Show the login form
+            loginForm.Show();
+
+            // 3. Close the current registration window completely
             this.Close();
         }
     }

@@ -29,7 +29,6 @@ namespace projectEDP
         private void InitializeComponent()
         {
             button1 = new Button();
-            button2 = new Button();
             button3 = new Button();
             pbLogo = new PictureBox();
             Title = new Label();
@@ -51,16 +50,6 @@ namespace projectEDP
             button1.Text = "Go to AdminManage";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(220, 805);
-            button2.Name = "button2";
-            button2.Size = new Size(224, 29);
-            button2.TabIndex = 1;
-            button2.Text = "Go to AdminOrders";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -170,7 +159,6 @@ namespace projectEDP
             Controls.Add(Title);
             Controls.Add(pbLogo);
             Controls.Add(button3);
-            Controls.Add(button2);
             Controls.Add(button1);
             Name = "Form1";
             Text = "Form1";
@@ -182,7 +170,6 @@ namespace projectEDP
         #endregion
 
         private Button button1;
-        private Button button2;
         private Button button3;
         private PictureBox pbLogo;
         private Label Title;

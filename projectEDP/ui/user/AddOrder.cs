@@ -21,8 +21,15 @@ namespace projectEDP
             this.currentCustomerId = customerId;
         }
 
+        private void AddOrder_Load(object sender, EventArgs e)
+        {
+            lblTotal.Text = "RM 0.00";
+        }
+
         private void CalculateTotal()
         {
+            // Fallback validation to ensure elements are instantiated and explicitly selected
+            if (cmbService == null || cmbCategory == null || lblTotal == null) return;
             if (cmbService.SelectedIndex == -1 || cmbCategory.SelectedIndex == -1)
             {
                 lblTotal.Text = "RM 0.00";
@@ -32,7 +39,7 @@ namespace projectEDP
 
             // 1. Get Base Service Price
             decimal basePrice = 0.00m;
-            string selectedService = cmbService.SelectedItem.ToString();
+            string selectedService = cmbService.SelectedItem?.ToString() ?? "";
 
             if (selectedService == "Wash") basePrice = 8.00m;
             else if (selectedService == "Wash and Dry") basePrice = 16.00m;
@@ -40,7 +47,7 @@ namespace projectEDP
 
             // 2. Apply Category Size Modifier
             decimal multiplier = 1.00m;
-            string selectedCategory = cmbCategory.SelectedItem.ToString();
+            string selectedCategory = cmbCategory.SelectedItem?.ToString() ?? "";
 
             if (selectedCategory == "Medium") multiplier = 1.20m;
             else if (selectedCategory == "Large") multiplier = 1.50m;
@@ -50,16 +57,9 @@ namespace projectEDP
             lblTotal.Text = $"RM {totalAmount:F2}";
         }
 
-
-
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             CalculateTotal();
-        }
-
-        private void AddOrder_Load(object sender, EventArgs e)
-        {
-            lblTotal.Text = "RM 0.00";
         }
 
         private void cmbService_SelectedIndexChanged(object sender, EventArgs e)
@@ -69,16 +69,23 @@ namespace projectEDP
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (cmbCategory.SelectedIndex == -1 || cmbService.SelectedIndex == -1)
+            if (cmbCategory == null || cmbCategory.SelectedIndex == -1 ||
+        cmbService == null || cmbService.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select both a category and a service type.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Generate a unique Order ID
+            // Fallback safe check for customer ID constraint properties
+            if (currentCustomerId <= 0)
+            {
+                MessageBox.Show("Invalid session context. Please log in again.", "Session Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Generate a unique Order ID string sequence
             string orderId = "ORD-" + DateTime.Now.ToString("yyyyMMddHHmmss");
 
-            // Matches your exact columns: order_id, customer_id, category, services, total_price, notes, status
             string query = @"INSERT INTO orders (order_id, customer_id, category, services, total_price, notes, status) 
                      VALUES (@orderId, @customerId, @category, @services, @totalPrice, @notes, @status);";
 
@@ -94,15 +101,15 @@ namespace projectEDP
                         cmd.Parameters.AddWithValue("@category", cmbCategory.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("@services", cmbService.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("@totalPrice", totalAmount);
-                        cmd.Parameters.AddWithValue("@notes", string.IsNullOrWhiteSpace(txtNotes.Text) ? (object)DBNull.Value : txtNotes.Text.Trim());
+                        cmd.Parameters.AddWithValue("@notes", (txtNotes == null || string.IsNullOrWhiteSpace(txtNotes.Text)) ? (object)DBNull.Value : txtNotes.Text.Trim());
                         cmd.Parameters.AddWithValue("@status", "Pending");
 
                         cmd.ExecuteNonQuery();
                     }
                 }
 
-                // Proceed to payment form
-                ProceedPayment paymentForm = new ProceedPayment(orderId, totalAmount);
+                // FIX: Added 'this.currentCustomerId' as the third argument matching the new constructor signature
+                ProceedPayment paymentForm = new ProceedPayment(orderId, totalAmount, this.currentCustomerId);
                 paymentForm.Show();
                 this.Close();
             }
