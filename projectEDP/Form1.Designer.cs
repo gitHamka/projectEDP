@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
@@ -83,7 +82,7 @@
             // 
             // pbLogo
             // 
-            pbLogo.Image = (Image)resources.GetObject("pbLogo.Image");
+            pbLogo.Image = Properties.Resources.logo;
             pbLogo.Location = new Point(194, 137);
             pbLogo.Name = "pbLogo";
             pbLogo.Size = new Size(295, 439);
