@@ -30,5 +30,10 @@ namespace projectEDP
                 MessageBox.Show("Connection failed: " + ex.Message);
             }
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
