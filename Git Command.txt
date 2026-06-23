@@ -9,4 +9,11 @@
 9.git branch -m <new-name>
 10.git push -u origin <branch-name>
 
+git add .
+git commit -m
+git checkout main
+git pull origin main 
+git merge <branch-name>
+git push origin main
+
 
