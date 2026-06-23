@@ -78,9 +78,18 @@ namespace projectEDP.ui.staff
             this.Hide();
         }
 
-        private void AdminDashboard_Load_1(object sender, EventArgs e)
+        private void lblTotalEarnings_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Form1 loginForm = new Form1();
+            loginForm.Show();
+
+            // Close the dashboard completely to terminate the current session context
+            this.Close();
         }
     }
 }

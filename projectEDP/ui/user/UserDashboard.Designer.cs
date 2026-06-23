@@ -40,7 +40,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Arial Rounded MT Bold", 22.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(131, 9);
+            label1.Location = new Point(147, 9);
             label1.Name = "label1";
             label1.Size = new Size(311, 43);
             label1.TabIndex = 0;
@@ -49,9 +49,9 @@
             // btnAdd
             // 
             btnAdd.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnAdd.Location = new Point(12, 57);
+            btnAdd.Location = new Point(117, 64);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(558, 62);
+            btnAdd.Size = new Size(369, 45);
             btnAdd.TabIndex = 2;
             btnAdd.Text = "Add New Order";
             btnAdd.UseVisualStyleBackColor = true;
@@ -60,9 +60,9 @@
             // btnLogout
             // 
             btnLogout.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogout.Location = new Point(12, 261);
+            btnLogout.Location = new Point(117, 268);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(558, 62);
+            btnLogout.Size = new Size(369, 45);
             btnLogout.TabIndex = 5;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = true;
@@ -71,9 +71,9 @@
             // button1
             // 
             button1.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(12, 193);
+            button1.Location = new Point(117, 200);
             button1.Name = "button1";
-            button1.Size = new Size(558, 62);
+            button1.Size = new Size(369, 45);
             button1.TabIndex = 6;
             button1.Text = "Update Profile";
             button1.UseVisualStyleBackColor = true;
@@ -82,9 +82,9 @@
             // button2
             // 
             button2.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.Location = new Point(12, 125);
+            button2.Location = new Point(117, 132);
             button2.Name = "button2";
-            button2.Size = new Size(558, 62);
+            button2.Size = new Size(369, 45);
             button2.TabIndex = 7;
             button2.Text = "View Order History";
             button2.UseVisualStyleBackColor = true;

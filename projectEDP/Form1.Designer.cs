@@ -137,7 +137,8 @@ namespace projectEDP
             Controls.Add(Title);
             Controls.Add(pbLogo);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Main Form";
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pbLogo).EndInit();
             ResumeLayout(false);
             PerformLayout();

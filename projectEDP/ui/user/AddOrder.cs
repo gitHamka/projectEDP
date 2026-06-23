@@ -125,5 +125,10 @@ namespace projectEDP
                 MessageBox.Show($"Failed to save order draft: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

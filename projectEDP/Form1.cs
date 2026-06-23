@@ -34,7 +34,7 @@ namespace projectEDP
             // 3. Hide the current Form1 (optional, so it stays in the background)
             this.Hide();
         }
-        
+
         private void button3_Click(object sender, EventArgs e)
         {
             // 1. Create an instance of the AdminManage form
@@ -109,6 +109,16 @@ namespace projectEDP
             {
                 MessageBox.Show($"Database Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

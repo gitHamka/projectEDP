@@ -7,6 +7,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Linq;
+using System.IO;
 
 namespace projectEDP.ui.user
 {
@@ -41,7 +43,7 @@ namespace projectEDP.ui.user
 
         private void FetchOrdersFromDatabase()
         {
-            string query = "SELECT order_id, category, services, total_price, status FROM orders WHERE customer_id = @id OR user_id = @id;";
+            string query = "SELECT order_id, category, services, total_price, status FROM orders WHERE customer_id = @id;";
             allOrders.Clear();
 
             try
@@ -95,6 +97,11 @@ namespace projectEDP.ui.user
         }
         private void btnDownloadReceipt_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnDownloadReceipt_Click_1(object sender, EventArgs e)
+        {
             if (dgvHistory.CurrentRow == null)
             {
                 MessageBox.Show("Please select an order sequence from the grid view row selection.", "Action Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -135,6 +142,11 @@ namespace projectEDP.ui.user
                     MessageBox.Show("Receipt generated successfully to your storage path.", "Receipt Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close(); 
         }
     }
 }

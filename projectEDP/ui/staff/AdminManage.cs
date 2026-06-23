@@ -36,8 +36,8 @@ namespace projectEDP.ui.staff
 
             bool isUpdating = !string.IsNullOrWhiteSpace(txtCustomerID.Text);
             string query = isUpdating
-                ? "UPDATE customers SET full_name = @name, phone = @phone, address = @address WHERE customer_id = @id;"
-                : "INSERT INTO customers (full_name, phone, address) VALUES (@name, @phone, @address);";
+                ? "UPDATE users SET full_name = @name, phone = @phone, address = @address WHERE user_id = @id;"
+                : "INSERT INTO users (full_name, phone, address) VALUES (@name, @phone, @address);";
 
             try
             {
@@ -109,7 +109,7 @@ namespace projectEDP.ui.staff
 
             if (result == DialogResult.Yes)
             {
-                string query = "DELETE FROM customers WHERE customer_id = @id;";
+                string query = "DELETE FROM users WHERE user_id = @id;";
 
                 try
                 {
@@ -157,7 +157,7 @@ namespace projectEDP.ui.staff
             }
 
             // 3. SQL Select query to fetch matching customer details
-            string query = "SELECT full_name, phone, address FROM customers WHERE customer_id = @id;";
+            string query = "SELECT full_name, phone, address FROM users WHERE user_id = @id;";
 
             try
             {
@@ -221,10 +221,10 @@ namespace projectEDP.ui.staff
 
         private void LoadCustomerGrid()
         {
-            string query = @"SELECT customer_id AS ""Customer ID"", full_name AS ""Full Name"", 
+            string query = @"SELECT user_id AS ""Customer ID"", full_name AS ""Full Name"", 
                             phone AS ""Phone"", address AS ""Address""
-                     FROM customers
-                     ORDER BY customer_id;";
+                     FROM users
+                     ORDER BY user_id;";
             try
             {
                 using (NpgsqlConnection conn = DatabaseHelper.GetConnection())

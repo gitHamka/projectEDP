@@ -37,8 +37,6 @@ namespace projectEDP.ui.user
             AddOrder orderForm = new AddOrder(this.currentCustomerId);
             orderForm.Show();
 
-            // Close the dashboard window
-            this.Close();
         }
 
         private void UserDashboard_Load_1(object sender, EventArgs e)

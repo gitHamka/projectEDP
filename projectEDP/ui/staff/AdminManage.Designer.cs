@@ -63,7 +63,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(12, 306);
+            label2.Location = new Point(12, 315);
             label2.Name = "label2";
             label2.Size = new Size(99, 17);
             label2.TabIndex = 1;
@@ -74,7 +74,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ButtonHighlight;
-            label3.Location = new Point(12, 359);
+            label3.Location = new Point(12, 379);
             label3.Name = "label3";
             label3.Size = new Size(80, 17);
             label3.TabIndex = 2;
@@ -85,7 +85,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ButtonHighlight;
-            label4.Location = new Point(12, 503);
+            label4.Location = new Point(12, 511);
             label4.Name = "label4";
             label4.Size = new Size(69, 17);
             label4.TabIndex = 3;
@@ -93,7 +93,7 @@
             // 
             // txtCustomerID
             // 
-            txtCustomerID.Location = new Point(12, 329);
+            txtCustomerID.Location = new Point(12, 338);
             txtCustomerID.Name = "txtCustomerID";
             txtCustomerID.Size = new Size(658, 27);
             txtCustomerID.TabIndex = 4;
@@ -101,14 +101,14 @@
             // 
             // txtPhone
             // 
-            txtPhone.Location = new Point(12, 435);
+            txtPhone.Location = new Point(12, 470);
             txtPhone.Name = "txtPhone";
             txtPhone.Size = new Size(658, 27);
             txtPhone.TabIndex = 5;
             // 
             // txtFullName
             // 
-            txtFullName.Location = new Point(12, 382);
+            txtFullName.Location = new Point(12, 402);
             txtFullName.Name = "txtFullName";
             txtFullName.Size = new Size(658, 27);
             txtFullName.TabIndex = 6;
@@ -118,7 +118,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = SystemColors.ButtonHighlight;
-            label5.Location = new Point(12, 412);
+            label5.Location = new Point(12, 447);
             label5.Name = "label5";
             label5.Size = new Size(54, 17);
             label5.TabIndex = 7;
@@ -126,7 +126,7 @@
             // 
             // txtAddress
             // 
-            txtAddress.Location = new Point(12, 523);
+            txtAddress.Location = new Point(12, 531);
             txtAddress.Name = "txtAddress";
             txtAddress.Size = new Size(658, 100);
             txtAddress.TabIndex = 8;
@@ -134,35 +134,38 @@
             // 
             // btnSave
             // 
+            btnSave.BackColor = Color.FromArgb(192, 255, 192);
             btnSave.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSave.Location = new Point(12, 644);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(215, 29);
             btnSave.TabIndex = 9;
             btnSave.Text = "Save";
-            btnSave.UseVisualStyleBackColor = true;
+            btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += btnSave_Click;
             // 
             // btnClear
             // 
+            btnClear.BackColor = Color.FromArgb(255, 255, 192);
             btnClear.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnClear.Location = new Point(234, 644);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(215, 29);
             btnClear.TabIndex = 10;
             btnClear.Text = "Clear";
-            btnClear.UseVisualStyleBackColor = true;
+            btnClear.UseVisualStyleBackColor = false;
             btnClear.Click += btnClear_Click;
             // 
             // btnDelete
             // 
+            btnDelete.BackColor = Color.FromArgb(255, 192, 192);
             btnDelete.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnDelete.Location = new Point(455, 644);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(215, 29);
             btnDelete.TabIndex = 11;
             btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;
             // 
             // btnHome

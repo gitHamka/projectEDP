@@ -107,7 +107,7 @@ namespace projectEDP.ui.staff
                     {
                         DataTable dt = new DataTable();
                         da.Fill(dt);
-                        
+
                     }
                 }
             }
@@ -269,13 +269,13 @@ namespace projectEDP.ui.staff
 
             // Create a rounded rectangle path
             path.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90);
-            path.AddArc(panel1.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90);
-            path.AddArc(panel1.Width - cornerRadius, panel1.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90);
-            path.AddArc(0, panel1.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90);
+            path.AddArc(panel2.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90);
+            path.AddArc(panel2.Width - cornerRadius, panel2.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90);
+            path.AddArc(0, panel2.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90);
             path.CloseAllFigures();
 
             // Apply the curved shape to the panel
-            panel1.Region = new System.Drawing.Region(path);
+            panel2.Region = new System.Drawing.Region(path);
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -287,13 +287,13 @@ namespace projectEDP.ui.staff
 
             // Create a rounded rectangle path
             path.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90);
-            path.AddArc(panel1.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90);
-            path.AddArc(panel1.Width - cornerRadius, panel1.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90);
-            path.AddArc(0, panel1.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90);
+            path.AddArc(panel3.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90);
+            path.AddArc(panel3.Width - cornerRadius, panel3.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90);
+            path.AddArc(0, panel3.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90);
             path.CloseAllFigures();
 
             // Apply the curved shape to the panel
-            panel1.Region = new System.Drawing.Region(path);
+            panel3.Region = new System.Drawing.Region(path);
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)
@@ -305,13 +305,23 @@ namespace projectEDP.ui.staff
 
             // Create a rounded rectangle path
             path.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90);
-            path.AddArc(panel1.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90);
-            path.AddArc(panel1.Width - cornerRadius, panel1.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90);
-            path.AddArc(0, panel1.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90);
+            path.AddArc(panel4.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90);
+            path.AddArc(panel4.Width - cornerRadius, panel4.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90);
+            path.AddArc(0, panel4.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90);
             path.CloseAllFigures();
 
             // Apply the curved shape to the panel
-            panel1.Region = new System.Drawing.Region(path);
+            panel4.Region = new System.Drawing.Region(path);
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblInProgressCount_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

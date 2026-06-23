@@ -109,5 +109,10 @@ namespace projectEDP
             // 3. Close the current registration window completely
             this.Close();
         }
+
+        private void Register_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

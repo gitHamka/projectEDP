@@ -39,6 +39,7 @@
             label6 = new Label();
             label5 = new Label();
             txtNotes = new RichTextBox();
+            btnBack = new Button();
             SuspendLayout();
             // 
             // label1
@@ -158,12 +159,23 @@
             txtNotes.TabIndex = 11;
             txtNotes.Text = "";
             // 
+            // btnBack
+            // 
+            btnBack.Location = new Point(12, 399);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(93, 29);
+            btnBack.TabIndex = 12;
+            btnBack.Text = "Back";
+            btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
+            // 
             // AddOrder
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MidnightBlue;
-            ClientSize = new Size(582, 397);
+            ClientSize = new Size(582, 440);
+            Controls.Add(btnBack);
             Controls.Add(txtNotes);
             Controls.Add(label5);
             Controls.Add(label6);
@@ -195,5 +207,6 @@
         private Label label6;
         private Label label5;
         private RichTextBox txtNotes;
+        private Button btnBack;
     }
 }

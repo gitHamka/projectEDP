@@ -67,50 +67,55 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Arial Rounded MT Bold", 9F);
             label1.ForeColor = Color.White;
             label1.Location = new Point(12, 23);
             label1.Name = "label1";
-            label1.Size = new Size(173, 20);
+            label1.Size = new Size(189, 17);
             label1.TabIndex = 0;
             label1.Text = "Order status mangement";
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Arial Rounded MT Bold", 9F);
             label2.ForeColor = Color.White;
             label2.Location = new Point(12, 184);
             label2.Name = "label2";
-            label2.Size = new Size(66, 20);
+            label2.Size = new Size(72, 17);
             label2.TabIndex = 1;
             label2.Text = "Order ID";
             // 
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Arial Rounded MT Bold", 9F);
             label4.ForeColor = Color.White;
             label4.Location = new Point(350, 263);
             label4.Name = "label4";
-            label4.Size = new Size(91, 20);
+            label4.Size = new Size(103, 17);
             label4.TabIndex = 3;
             label4.Text = "Service Type";
             // 
             // label6
             // 
             label6.AutoSize = true;
+            label6.Font = new Font("Arial Rounded MT Bold", 9F);
             label6.ForeColor = Color.White;
             label6.Location = new Point(350, 328);
             label6.Name = "label6";
-            label6.Size = new Size(118, 20);
+            label6.Size = new Size(126, 17);
             label6.TabIndex = 5;
             label6.Text = "Update status to";
             // 
             // label8
             // 
             label8.AutoSize = true;
+            label8.Font = new Font("Arial Rounded MT Bold", 9F);
             label8.ForeColor = Color.White;
             label8.Location = new Point(12, 398);
             label8.Name = "label8";
-            label8.Size = new Size(42, 20);
+            label8.Size = new Size(42, 17);
             label8.TabIndex = 7;
             label8.Text = "Note";
             // 
@@ -150,22 +155,24 @@
             // 
             // btnUpdateStatus
             // 
-            btnUpdateStatus.Location = new Point(12, 516);
+            btnUpdateStatus.BackColor = Color.FromArgb(192, 255, 192);
+            btnUpdateStatus.Location = new Point(13, 518);
             btnUpdateStatus.Name = "btnUpdateStatus";
             btnUpdateStatus.Size = new Size(332, 29);
             btnUpdateStatus.TabIndex = 14;
             btnUpdateStatus.Text = "Update status";
-            btnUpdateStatus.UseVisualStyleBackColor = true;
+            btnUpdateStatus.UseVisualStyleBackColor = false;
             btnUpdateStatus.Click += btnUpdateStatus_Click;
             // 
             // btnClearStatus
             // 
-            btnClearStatus.Location = new Point(350, 516);
+            btnClearStatus.BackColor = Color.FromArgb(255, 255, 192);
+            btnClearStatus.Location = new Point(351, 518);
             btnClearStatus.Name = "btnClearStatus";
             btnClearStatus.Size = new Size(319, 29);
             btnClearStatus.TabIndex = 15;
             btnClearStatus.Text = "Clear";
-            btnClearStatus.UseVisualStyleBackColor = true;
+            btnClearStatus.UseVisualStyleBackColor = false;
             btnClearStatus.Click += btnClearStatus_Click;
             // 
             // label7
@@ -177,6 +184,7 @@
             label7.Size = new Size(81, 20);
             label7.TabIndex = 17;
             label7.Text = "In Progress";
+            label7.Click += label7_Click;
             // 
             // label9
             // 
@@ -202,7 +210,7 @@
             // 
             label11.AutoSize = true;
             label11.ForeColor = Color.White;
-            label11.Location = new Point(39, 12);
+            label11.Location = new Point(44, 12);
             label11.Name = "label11";
             label11.Size = new Size(62, 20);
             label11.TabIndex = 20;
@@ -212,7 +220,7 @@
             // 
             lblCompletedCount.AutoSize = true;
             lblCompletedCount.ForeColor = Color.White;
-            lblCompletedCount.Location = new Point(54, 49);
+            lblCompletedCount.Location = new Point(53, 49);
             lblCompletedCount.Name = "lblCompletedCount";
             lblCompletedCount.Size = new Size(42, 20);
             lblCompletedCount.TabIndex = 21;
@@ -222,7 +230,7 @@
             // 
             lblReadyCount.AutoSize = true;
             lblReadyCount.ForeColor = Color.White;
-            lblReadyCount.Location = new Point(51, 49);
+            lblReadyCount.Location = new Point(53, 49);
             lblReadyCount.Name = "lblReadyCount";
             lblReadyCount.Size = new Size(42, 20);
             lblReadyCount.TabIndex = 22;
@@ -232,17 +240,18 @@
             // 
             lblInProgressCount.AutoSize = true;
             lblInProgressCount.ForeColor = Color.White;
-            lblInProgressCount.Location = new Point(56, 49);
+            lblInProgressCount.Location = new Point(54, 49);
             lblInProgressCount.Name = "lblInProgressCount";
             lblInProgressCount.Size = new Size(42, 20);
             lblInProgressCount.TabIndex = 23;
             lblInProgressCount.Text = "Note";
+            lblInProgressCount.Click += lblInProgressCount_Click;
             // 
             // lblPendingCount
             // 
             lblPendingCount.AutoSize = true;
             lblPendingCount.ForeColor = Color.White;
-            lblPendingCount.Location = new Point(48, 49);
+            lblPendingCount.Location = new Point(52, 49);
             lblPendingCount.Name = "lblPendingCount";
             lblPendingCount.Size = new Size(42, 20);
             lblPendingCount.TabIndex = 24;
@@ -256,12 +265,12 @@
             dgvActiveOrders.Location = new Point(12, 46);
             dgvActiveOrders.Name = "dgvActiveOrders";
             dgvActiveOrders.RowHeadersWidth = 51;
-            dgvActiveOrders.Size = new Size(658, 108);
+            dgvActiveOrders.Size = new Size(658, 123);
             dgvActiveOrders.TabIndex = 25;
             // 
             // btnHome
             // 
-            btnHome.Location = new Point(12, 669);
+            btnHome.Location = new Point(12, 678);
             btnHome.Name = "btnHome";
             btnHome.Size = new Size(657, 29);
             btnHome.TabIndex = 27;
@@ -316,20 +325,22 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Arial Rounded MT Bold", 9F);
             label3.ForeColor = Color.White;
             label3.Location = new Point(12, 263);
             label3.Name = "label3";
-            label3.Size = new Size(116, 20);
+            label3.Size = new Size(125, 17);
             label3.TabIndex = 2;
             label3.Text = "Customer Name";
             // 
             // label5
             // 
             label5.AutoSize = true;
+            label5.Font = new Font("Arial Rounded MT Bold", 9F);
             label5.ForeColor = Color.White;
             label5.Location = new Point(12, 328);
             label5.Name = "label5";
-            label5.Size = new Size(101, 20);
+            label5.Size = new Size(115, 17);
             label5.TabIndex = 4;
             label5.Text = "Current Status";
             label5.Click += label5_Click;

@@ -208,6 +208,7 @@
             Controls.Add(label1);
             Name = "Register";
             Text = "Register";
+            Load += Register_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
