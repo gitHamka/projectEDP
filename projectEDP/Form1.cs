@@ -10,6 +10,17 @@ namespace projectEDP
         public Form1()
         {
             InitializeComponent();
+            this.KeyPreview = true;
+            this.KeyDown += new KeyEventHandler(Form1_KeyDown);
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnLogin_Click(this, new EventArgs());
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,14 +55,12 @@ namespace projectEDP
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            // 1. Check if the text fields are empty
             if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
             {
                 MessageBox.Show("Please enter both username and password.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // 2. SQL query to retrieve user_id and role matching credentials
             string query = "SELECT user_id, role FROM users WHERE username = @username AND password = @password;";
 
             try
@@ -64,7 +73,6 @@ namespace projectEDP
                         cmd.Parameters.AddWithValue("@username", txtUsername.Text.Trim());
                         cmd.Parameters.AddWithValue("@password", txtPassword.Text.Trim());
 
-                        // 3. Use ExecuteReader to read database row details
                         using (NpgsqlDataReader reader = cmd.ExecuteReader())
                         {
                             if (reader.Read())
@@ -74,14 +82,13 @@ namespace projectEDP
 
                                 if (role == "customer")
                                 {
-                                    // Redirect to UserDashboard instead of AddOrder
                                     UserDashboard dashboardForm = new UserDashboard(userId);
                                     dashboardForm.Show();
                                     this.Hide();
                                 }
                                 else if (role == "admin" || role == "staff")
                                 {
-                                    AdminStatus adminForm = new AdminStatus();
+                                    AdminDashboard adminForm = new AdminDashboard();
                                     adminForm.Show();
                                     this.Hide();
                                 }

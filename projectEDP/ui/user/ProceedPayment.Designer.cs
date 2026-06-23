@@ -43,14 +43,14 @@
             dgvOrderDetails.Location = new Point(12, 12);
             dgvOrderDetails.Name = "dgvOrderDetails";
             dgvOrderDetails.RowHeadersWidth = 51;
-            dgvOrderDetails.Size = new Size(658, 193);
+            dgvOrderDetails.Size = new Size(558, 129);
             dgvOrderDetails.TabIndex = 2;
             // 
             // btnBack
             // 
-            btnBack.Location = new Point(347, 211);
+            btnBack.Location = new Point(286, 147);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(323, 162);
+            btnBack.Size = new Size(284, 163);
             btnBack.TabIndex = 6;
             btnBack.Text = "Change My Order";
             btnBack.UseVisualStyleBackColor = true;
@@ -58,9 +58,9 @@
             // 
             // btnProceed
             // 
-            btnProceed.Location = new Point(347, 379);
+            btnProceed.Location = new Point(286, 315);
             btnProceed.Name = "btnProceed";
-            btnProceed.Size = new Size(323, 166);
+            btnProceed.Size = new Size(284, 167);
             btnProceed.TabIndex = 7;
             btnProceed.Text = "Proceed";
             btnProceed.UseVisualStyleBackColor = true;
@@ -69,9 +69,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(12, 211);
+            pictureBox1.Location = new Point(12, 147);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(329, 334);
+            pictureBox1.Size = new Size(268, 334);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 8;
             pictureBox1.TabStop = false;
@@ -82,7 +82,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MidnightBlue;
-            ClientSize = new Size(682, 557);
+            ClientSize = new Size(582, 493);
             Controls.Add(pictureBox1);
             Controls.Add(btnProceed);
             Controls.Add(btnBack);

@@ -19,6 +19,17 @@ namespace projectEDP
         {
             InitializeComponent();
             this.currentCustomerId = customerId;
+
+            if (lblTotal != null)
+            {
+                lblTotal.MouseHover += new EventHandler(lblTotal_MouseHover);
+            }
+        }
+
+        private void lblTotal_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip tt = new ToolTip();
+            tt.SetToolTip(lblTotal, "Calculated using base service rates and structural category size adjustments.");
         }
 
         private void AddOrder_Load(object sender, EventArgs e)
@@ -28,7 +39,6 @@ namespace projectEDP
 
         private void CalculateTotal()
         {
-            // Fallback validation to ensure elements are instantiated and explicitly selected
             if (cmbService == null || cmbCategory == null || lblTotal == null) return;
             if (cmbService.SelectedIndex == -1 || cmbCategory.SelectedIndex == -1)
             {
@@ -37,7 +47,6 @@ namespace projectEDP
                 return;
             }
 
-            // 1. Get Base Service Price
             decimal basePrice = 0.00m;
             string selectedService = cmbService.SelectedItem?.ToString() ?? "";
 
@@ -45,14 +54,12 @@ namespace projectEDP
             else if (selectedService == "Wash and Dry") basePrice = 16.00m;
             else if (selectedService == "Wash and Dry and Fold") basePrice = 25.00m;
 
-            // 2. Apply Category Size Modifier
             decimal multiplier = 1.00m;
             string selectedCategory = cmbCategory.SelectedItem?.ToString() ?? "";
 
             if (selectedCategory == "Medium") multiplier = 1.20m;
             else if (selectedCategory == "Large") multiplier = 1.50m;
 
-            // 3. Compute and display final price
             totalAmount = basePrice * multiplier;
             lblTotal.Text = $"RM {totalAmount:F2}";
         }

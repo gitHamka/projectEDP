@@ -50,7 +50,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.Window;
-            label1.Location = new Point(22, 275);
+            label1.Location = new Point(363, 16);
             label1.Name = "label1";
             label1.Size = new Size(92, 17);
             label1.TabIndex = 0;
@@ -61,7 +61,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.Window;
-            label2.Location = new Point(55, 327);
+            label2.Location = new Point(396, 42);
             label2.Name = "label2";
             label2.Size = new Size(59, 17);
             label2.TabIndex = 1;
@@ -72,7 +72,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.Window;
-            label3.Location = new Point(51, 373);
+            label3.Location = new Point(392, 68);
             label3.Name = "label3";
             label3.Size = new Size(63, 17);
             label3.TabIndex = 2;
@@ -83,7 +83,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.Window;
-            label4.Location = new Point(351, 275);
+            label4.Location = new Point(366, 94);
             label4.Name = "label4";
             label4.Size = new Size(89, 17);
             label4.TabIndex = 3;
@@ -94,7 +94,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = SystemColors.Window;
-            label6.Location = new Point(362, 368);
+            label6.Location = new Point(377, 120);
             label6.Name = "label6";
             label6.Size = new Size(78, 17);
             label6.TabIndex = 5;
@@ -105,9 +105,9 @@
             txtUsername.BackColor = SystemColors.Window;
             txtUsername.BorderStyle = BorderStyle.None;
             txtUsername.ForeColor = SystemColors.WindowText;
-            txtUsername.Location = new Point(120, 275);
+            txtUsername.Location = new Point(461, 16);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(170, 20);
+            txtUsername.Size = new Size(188, 20);
             txtUsername.TabIndex = 6;
             // 
             // txtName
@@ -115,9 +115,9 @@
             txtName.BackColor = SystemColors.Window;
             txtName.BorderStyle = BorderStyle.None;
             txtName.ForeColor = SystemColors.WindowText;
-            txtName.Location = new Point(120, 327);
+            txtName.Location = new Point(461, 42);
             txtName.Name = "txtName";
-            txtName.Size = new Size(170, 20);
+            txtName.Size = new Size(188, 20);
             txtName.TabIndex = 7;
             // 
             // txtPhone
@@ -125,9 +125,9 @@
             txtPhone.BackColor = SystemColors.Window;
             txtPhone.BorderStyle = BorderStyle.None;
             txtPhone.ForeColor = SystemColors.WindowText;
-            txtPhone.Location = new Point(120, 373);
+            txtPhone.Location = new Point(461, 68);
             txtPhone.Name = "txtPhone";
-            txtPhone.Size = new Size(170, 20);
+            txtPhone.Size = new Size(188, 20);
             txtPhone.TabIndex = 8;
             txtPhone.TextChanged += textBox3_TextChanged;
             // 
@@ -136,9 +136,9 @@
             txtPassword.BackColor = SystemColors.Window;
             txtPassword.BorderStyle = BorderStyle.None;
             txtPassword.ForeColor = SystemColors.WindowText;
-            txtPassword.Location = new Point(446, 275);
+            txtPassword.Location = new Point(461, 94);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(185, 20);
+            txtPassword.Size = new Size(188, 20);
             txtPassword.TabIndex = 9;
             // 
             // txtAddress
@@ -146,17 +146,17 @@
             txtAddress.BackColor = SystemColors.Window;
             txtAddress.BorderStyle = BorderStyle.None;
             txtAddress.ForeColor = SystemColors.WindowText;
-            txtAddress.Location = new Point(446, 368);
+            txtAddress.Location = new Point(461, 120);
             txtAddress.Multiline = true;
             txtAddress.Name = "txtAddress";
-            txtAddress.Size = new Size(185, 168);
+            txtAddress.Size = new Size(188, 74);
             txtAddress.TabIndex = 11;
             // 
             // btnRegister
             // 
             btnRegister.FlatStyle = FlatStyle.System;
             btnRegister.ForeColor = SystemColors.Window;
-            btnRegister.Location = new Point(537, 597);
+            btnRegister.Location = new Point(512, 200);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(94, 29);
             btnRegister.TabIndex = 12;
@@ -167,10 +167,11 @@
             // lblLogin
             // 
             lblLogin.AutoSize = true;
+            lblLogin.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblLogin.LinkColor = Color.White;
-            lblLogin.Location = new Point(353, 601);
+            lblLogin.Location = new Point(478, 232);
             lblLogin.Name = "lblLogin";
-            lblLogin.Size = new Size(178, 20);
+            lblLogin.Size = new Size(156, 17);
             lblLogin.TabIndex = 13;
             lblLogin.TabStop = true;
             lblLogin.Text = "Already have an account?";
@@ -179,7 +180,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(174, 12);
+            pictureBox1.Location = new Point(12, 16);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(322, 238);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -191,7 +192,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MidnightBlue;
-            ClientSize = new Size(682, 698);
+            ClientSize = new Size(682, 273);
             Controls.Add(pictureBox1);
             Controls.Add(lblLogin);
             Controls.Add(btnRegister);

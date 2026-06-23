@@ -28,8 +28,6 @@ namespace projectEDP
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button3 = new Button();
             pbLogo = new PictureBox();
             Title = new Label();
             txtUsername = new TextBox();
@@ -41,32 +39,12 @@ namespace projectEDP
             ((System.ComponentModel.ISupportInitialize)pbLogo).BeginInit();
             SuspendLayout();
             // 
-            // button1
-            // 
-            button1.Location = new Point(220, 770);
-            button1.Name = "button1";
-            button1.Size = new Size(224, 29);
-            button1.TabIndex = 0;
-            button1.Text = "Go to AdminManage";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(220, 840);
-            button3.Name = "button3";
-            button3.Size = new Size(224, 29);
-            button3.TabIndex = 2;
-            button3.Text = "Go to AdminStatus";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
-            // 
             // pbLogo
             // 
             pbLogo.Image = Properties.Resources.logo;
-            pbLogo.Location = new Point(12, 51);
+            pbLogo.Location = new Point(12, 18);
             pbLogo.Name = "pbLogo";
-            pbLogo.Size = new Size(662, 551);
+            pbLogo.Size = new Size(309, 467);
             pbLogo.SizeMode = PictureBoxSizeMode.Zoom;
             pbLogo.TabIndex = 4;
             pbLogo.TabStop = false;
@@ -74,18 +52,18 @@ namespace projectEDP
             // Title
             // 
             Title.AutoSize = true;
-            Title.Font = new Font("Arial Rounded MT Bold", 19.8000011F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            Title.Font = new Font("Arial Rounded MT Bold", 19.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
             Title.ForeColor = Color.White;
-            Title.Location = new Point(183, 9);
+            Title.Location = new Point(353, 21);
             Title.Name = "Title";
-            Title.Size = new Size(325, 39);
+            Title.Size = new Size(307, 37);
             Title.TabIndex = 5;
             Title.Text = "RBN SMARTWASH";
             // 
             // txtUsername
             // 
             txtUsername.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtUsername.Location = new Point(292, 624);
+            txtUsername.Location = new Point(444, 206);
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(216, 30);
             txtUsername.TabIndex = 6;
@@ -93,7 +71,7 @@ namespace projectEDP
             // txtPassword
             // 
             txtPassword.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtPassword.Location = new Point(292, 660);
+            txtPassword.Location = new Point(444, 242);
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(216, 30);
             txtPassword.TabIndex = 7;
@@ -104,7 +82,7 @@ namespace projectEDP
             lblUsername.AutoSize = true;
             lblUsername.Font = new Font("Arial", 12F);
             lblUsername.ForeColor = Color.White;
-            lblUsername.Location = new Point(151, 627);
+            lblUsername.Location = new Point(333, 209);
             lblUsername.Name = "lblUsername";
             lblUsername.Size = new Size(105, 23);
             lblUsername.TabIndex = 8;
@@ -115,7 +93,7 @@ namespace projectEDP
             lblPassword.AutoSize = true;
             lblPassword.Font = new Font("Arial", 12F);
             lblPassword.ForeColor = Color.White;
-            lblPassword.Location = new Point(151, 667);
+            lblPassword.Location = new Point(334, 245);
             lblPassword.Name = "lblPassword";
             lblPassword.Size = new Size(104, 23);
             lblPassword.TabIndex = 9;
@@ -123,7 +101,7 @@ namespace projectEDP
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(414, 698);
+            btnLogin.Location = new Point(566, 280);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(94, 29);
             btnLogin.TabIndex = 10;
@@ -136,7 +114,7 @@ namespace projectEDP
             llCreateAccount.AutoSize = true;
             llCreateAccount.Font = new Font("Arial", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             llCreateAccount.LinkColor = Color.White;
-            llCreateAccount.Location = new Point(292, 705);
+            llCreateAccount.Location = new Point(444, 287);
             llCreateAccount.Name = "llCreateAccount";
             llCreateAccount.Size = new Size(114, 16);
             llCreateAccount.TabIndex = 11;
@@ -149,7 +127,7 @@ namespace projectEDP
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MidnightBlue;
-            ClientSize = new Size(682, 917);
+            ClientSize = new Size(682, 496);
             Controls.Add(llCreateAccount);
             Controls.Add(btnLogin);
             Controls.Add(lblPassword);
@@ -158,8 +136,6 @@ namespace projectEDP
             Controls.Add(txtUsername);
             Controls.Add(Title);
             Controls.Add(pbLogo);
-            Controls.Add(button3);
-            Controls.Add(button1);
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)pbLogo).EndInit();
@@ -168,9 +144,6 @@ namespace projectEDP
         }
 
         #endregion
-
-        private Button button1;
-        private Button button3;
         private PictureBox pbLogo;
         private Label Title;
         private TextBox txtUsername;
