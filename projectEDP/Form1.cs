@@ -45,8 +45,8 @@ namespace projectEDP
 
         private void llCreateAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Register form = new Register();
-            form.Show();
+            Register RegisterForm = new Register();
+            RegisterForm.Show();
         }
     }
 }
