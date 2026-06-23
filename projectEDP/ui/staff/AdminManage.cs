@@ -7,12 +7,15 @@ using System.Text;
 using System.Windows.Forms;
 using Npgsql; // Make sure this is added at the very top of your file
 using projectEDP.core.database; // References your DatabaseHelper namespace
+using System.Linq;
 
 
 namespace projectEDP.ui.staff
 {
     public partial class AdminManage : Form
     {
+        public delegate void OrderLogger(string input);
+        public delegate decimal PremiumTaxEngine(decimal baseline);
         public AdminManage()
         {
             InitializeComponent();
@@ -59,6 +62,7 @@ namespace projectEDP.ui.staff
                             string msg = isUpdating ? "Customer profile updated!" : "Customer registered successfully!";
                             MessageBox.Show(msg, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             ClearFields();
+                            LoadCustomerGrid();
                         }
                     }
                 }
@@ -123,6 +127,7 @@ namespace projectEDP.ui.staff
                             {
                                 MessageBox.Show("Customer profile deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 ClearFields(); // Reset fields using your clear method
+                                LoadCustomerGrid();
                             }
                             else
                             {
@@ -192,22 +197,129 @@ namespace projectEDP.ui.staff
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            // 1. Find the already open instance of Form1 to avoid duplicating it
-            Form form1 = Application.OpenForms["Form1"];
+            Form adminDashboard = Application.OpenForms["AdminDashboard"];
 
-            if (form1 != null)
+            if (adminDashboard != null)
             {
-                form1.Show(); // Bring back the existing Form1
+                adminDashboard.Show(); // Bring back the existing AdminDashboard
             }
             else
             {
-                // Fallback: If Form1 was closed completely, create a new one
-                Form1 newForm1 = new Form1();
-                newForm1.Show();
+                // Fallback: If AdminDashboard was closed completely, create a new one
+                AdminDashboard newDashboard = new AdminDashboard();
+                newDashboard.Show();
             }
 
             // 2. Close this current AdminOrders form instead of hiding it to free up memory
             this.Close();
         }
+
+        private void AdminManage_Load(object sender, EventArgs e)
+        {
+            LoadCustomerGrid();
+        }
+
+        private void LoadCustomerGrid()
+        {
+            string query = @"SELECT customer_id AS ""Customer ID"", full_name AS ""Full Name"", 
+                            phone AS ""Phone"", address AS ""Address""
+                     FROM customers
+                     ORDER BY customer_id;";
+            try
+            {
+                using (NpgsqlConnection conn = DatabaseHelper.GetConnection())
+                {
+                    using (NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conn))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        dgvCustomer.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Database Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private class OrderAuditItem { public string Id { get; set; } public decimal Price { get; set; } public string Status { get; set; } public string Category { get; set; } }
+
+        private void ExecuteSystemAnalytics()
+        {
+            // Instantiate 2 lambdas matching our delegates
+            OrderLogger logAction = (info) => Console.WriteLine($"[ANALYTICS LINK]: {info}");
+            PremiumTaxEngine taxCalc = (val) => val * 1.06m;
+
+            logAction("Running data analysis sequence...");
+
+            List<OrderAuditItem> dataset = new List<OrderAuditItem>
+            {
+                new OrderAuditItem { Id = "ORD-01", Price = 15.50m, Status = "Pending", Category = "Large" },
+                new OrderAuditItem { Id = "ORD-02", Price = 24.00m, Status = "Completed", Category = "Medium" },
+                new OrderAuditItem { Id = "ORD-03", Price = 8.00m, Status = "Pending", Category = "Small" },
+                new OrderAuditItem { Id = "ORD-04", Price = 50.00m, Status = "In Progress", Category = "Large" }
+            };
+
+            // 1. Where 
+            var pendingOrders = dataset.Where(x => x.Status == "Pending").ToList();
+
+            // 2. Select 
+            var pricesList = dataset.Select(x => x.Price).ToList();
+
+            // 3. OrderBy 
+            var sortedByPrice = dataset.OrderByDescending(x => x.Price).ToList();
+
+            // 4. Sum 
+            decimal collectiveRevenue = dataset.Sum(x => x.Price);
+
+            // 5. Average 
+            decimal averageReceiptValue = dataset.Average(x => x.Price);
+
+            // 6. Count 
+            int activeWorkloadCount = dataset.Count(x => x.Status == "In Progress");
+
+            // 7. GroupBy 
+            var groupedOutput = dataset.GroupBy(x => x.Category).ToList();
+
+            // 8. Any 
+            bool containsHighValueOrders = dataset.Any(x => x.Price > 40.00m);
+
+            logAction($"Analytics running state tracking indicator result: {containsHighValueOrders}");
+        }
+
+        private void dgvCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            DataGridViewRow row = dgvCustomer.Rows[e.RowIndex];
+            txtCustomerID.Text = row.Cells["Customer ID"].Value.ToString();
+            txtFullName.Text = row.Cells["Full Name"].Value.ToString();
+            txtPhone.Text = row.Cells["Phone"].Value.ToString();
+            txtAddress.Text = row.Cells["Address"].Value != DBNull.Value ? row.Cells["Address"].Value.ToString() : "";
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string filterText = txtSearch.Text.Trim().Replace("'", "''");
+
+            if (dgvCustomer.DataSource is DataTable dt)
+            {
+                if (string.IsNullOrWhiteSpace(filterText))
+                {
+                    dt.DefaultView.RowFilter = string.Empty;
+                }
+                else
+                {
+                    // Real-time grid sorting filtering matching structural ID layout or name assignments
+                    dt.DefaultView.RowFilter = string.Format(
+                        "Convert([Customer ID], 'System.String') LIKE '%{0}%' OR [Full Name] LIKE '%{0}%'",
+                        filterText
+                    );
+                }
+            }
+        }
+
+
     }
 }

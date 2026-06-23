@@ -30,19 +30,15 @@
         {
             label1 = new Label();
             label2 = new Label();
-            label3 = new Label();
             label4 = new Label();
-            label5 = new Label();
             label6 = new Label();
             label8 = new Label();
             txtSearchOrderID = new TextBox();
-            txtCustomerName = new TextBox();
             txtServiceType = new TextBox();
             cmbNewStatus = new ComboBox();
             txtNotes = new TextBox();
             btnUpdateStatus = new Button();
             btnClearStatus = new Button();
-            txtCurrentStatus = new TextBox();
             label7 = new Label();
             label9 = new Label();
             label10 = new Label();
@@ -52,15 +48,16 @@
             lblInProgressCount = new Label();
             lblPendingCount = new Label();
             dgvActiveOrders = new DataGridView();
-            dgvOverdueOrders = new DataGridView();
             btnHome = new Button();
             panel1 = new Panel();
             panel2 = new Panel();
             panel3 = new Panel();
             panel4 = new Panel();
-            label12 = new Label();
+            label3 = new Label();
+            label5 = new Label();
+            txtCurrentStatus = new TextBox();
+            txtCustomerName = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvActiveOrders).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvOverdueOrders).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -87,16 +84,6 @@
             label2.TabIndex = 1;
             label2.Text = "Order ID";
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(12, 263);
-            label3.Name = "label3";
-            label3.Size = new Size(116, 20);
-            label3.TabIndex = 2;
-            label3.Text = "Customer Name";
-            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -106,17 +93,6 @@
             label4.Size = new Size(91, 20);
             label4.TabIndex = 3;
             label4.Text = "Service Type";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.ForeColor = Color.White;
-            label5.Location = new Point(12, 328);
-            label5.Name = "label5";
-            label5.Size = new Size(101, 20);
-            label5.TabIndex = 4;
-            label5.Text = "Current Status";
-            label5.Click += label5_Click;
             // 
             // label6
             // 
@@ -146,14 +122,6 @@
             txtSearchOrderID.Size = new Size(658, 34);
             txtSearchOrderID.TabIndex = 8;
             txtSearchOrderID.Leave += txtSearchOrderID_Leave;
-            // 
-            // txtCustomerName
-            // 
-            txtCustomerName.Location = new Point(12, 286);
-            txtCustomerName.Name = "txtCustomerName";
-            txtCustomerName.ReadOnly = true;
-            txtCustomerName.Size = new Size(321, 27);
-            txtCustomerName.TabIndex = 9;
             // 
             // txtServiceType
             // 
@@ -199,14 +167,6 @@
             btnClearStatus.Text = "Clear";
             btnClearStatus.UseVisualStyleBackColor = true;
             btnClearStatus.Click += btnClearStatus_Click;
-            // 
-            // txtCurrentStatus
-            // 
-            txtCurrentStatus.Location = new Point(12, 351);
-            txtCurrentStatus.Name = "txtCurrentStatus";
-            txtCurrentStatus.ReadOnly = true;
-            txtCurrentStatus.Size = new Size(321, 27);
-            txtCurrentStatus.TabIndex = 16;
             // 
             // label7
             // 
@@ -299,20 +259,9 @@
             dgvActiveOrders.Size = new Size(658, 108);
             dgvActiveOrders.TabIndex = 25;
             // 
-            // dgvOverdueOrders
-            // 
-            dgvOverdueOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvOverdueOrders.BackgroundColor = SystemColors.MenuHighlight;
-            dgvOverdueOrders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvOverdueOrders.Location = new Point(12, 727);
-            dgvOverdueOrders.Name = "dgvOverdueOrders";
-            dgvOverdueOrders.RowHeadersWidth = 51;
-            dgvOverdueOrders.Size = new Size(658, 108);
-            dgvOverdueOrders.TabIndex = 26;
-            // 
             // btnHome
             // 
-            btnHome.Location = new Point(12, 841);
+            btnHome.Location = new Point(12, 669);
             btnHome.Name = "btnHome";
             btnHome.Size = new Size(657, 29);
             btnHome.TabIndex = 27;
@@ -364,29 +313,54 @@
             panel4.TabIndex = 30;
             panel4.Paint += panel4_Paint;
             // 
-            // label12
+            // label3
             // 
-            label12.AutoSize = true;
-            label12.ForeColor = Color.White;
-            label12.Location = new Point(12, 704);
-            label12.Name = "label12";
-            label12.Size = new Size(113, 20);
-            label12.TabIndex = 25;
-            label12.Text = "Overdue Orders";
+            label3.AutoSize = true;
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(12, 263);
+            label3.Name = "label3";
+            label3.Size = new Size(116, 20);
+            label3.TabIndex = 2;
+            label3.Text = "Customer Name";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(12, 328);
+            label5.Name = "label5";
+            label5.Size = new Size(101, 20);
+            label5.TabIndex = 4;
+            label5.Text = "Current Status";
+            label5.Click += label5_Click;
+            // 
+            // txtCurrentStatus
+            // 
+            txtCurrentStatus.Location = new Point(12, 351);
+            txtCurrentStatus.Name = "txtCurrentStatus";
+            txtCurrentStatus.ReadOnly = true;
+            txtCurrentStatus.Size = new Size(321, 27);
+            txtCurrentStatus.TabIndex = 16;
+            // 
+            // txtCustomerName
+            // 
+            txtCustomerName.Location = new Point(12, 286);
+            txtCustomerName.Name = "txtCustomerName";
+            txtCustomerName.ReadOnly = true;
+            txtCustomerName.Size = new Size(321, 27);
+            txtCustomerName.TabIndex = 9;
             // 
             // AdminStatus
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MidnightBlue;
-            ClientSize = new Size(682, 882);
-            Controls.Add(label12);
+            ClientSize = new Size(682, 725);
             Controls.Add(panel3);
             Controls.Add(panel4);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(btnHome);
-            Controls.Add(dgvOverdueOrders);
             Controls.Add(dgvActiveOrders);
             Controls.Add(txtCurrentStatus);
             Controls.Add(btnClearStatus);
@@ -407,7 +381,6 @@
             Text = "AdminStatus";
             Load += AdminStatus_Load;
             ((System.ComponentModel.ISupportInitialize)dgvActiveOrders).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvOverdueOrders).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -424,19 +397,15 @@
 
         private Label label1;
         private Label label2;
-        private Label label3;
         private Label label4;
-        private Label label5;
         private Label label6;
         private Label label8;
         private TextBox txtSearchOrderID;
-        private TextBox txtCustomerName;
         private TextBox txtServiceType;
         private ComboBox cmbNewStatus;
         private TextBox txtNotes;
         private Button btnUpdateStatus;
         private Button btnClearStatus;
-        private TextBox txtCurrentStatus;
         private Label label7;
         private Label label9;
         private Label label10;
@@ -446,12 +415,14 @@
         private Label lblInProgressCount;
         private Label lblPendingCount;
         private DataGridView dgvActiveOrders;
-        private DataGridView dgvOverdueOrders;
         private Button btnHome;
         private Panel panel1;
         private Panel panel2;
         private Panel panel3;
         private Panel panel4;
-        private Label label12;
+        private Label label3;
+        private Label label5;
+        private TextBox txtCurrentStatus;
+        private TextBox txtCustomerName;
     }
 }

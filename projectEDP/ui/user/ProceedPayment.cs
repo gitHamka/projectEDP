@@ -32,15 +32,14 @@ namespace projectEDP
 
         private void LoadOrderDetails()
         {
-            // Querying specific columns from your schema to present cleanly in the UI
             string query = @"SELECT order_id AS ""Order ID"", 
-                                    category AS ""Category"", 
-                                    services AS ""Service Type"", 
-                                    total_price AS ""Total Price (RM)"", 
-                                    notes AS ""Special Notes"", 
-                                    status AS ""Status"" 
-                             FROM orders 
-                             WHERE order_id = @orderId;";
+                            category AS ""Category"", 
+                            services AS ""Service Type"", 
+                            total_price AS ""Total Price (RM)"", 
+                            notes AS ""Special Notes"", 
+                            status AS ""Status"" 
+                     FROM orders 
+                     WHERE order_id = @orderId;";
 
             try
             {
@@ -56,13 +55,16 @@ namespace projectEDP
                             DataTable dt = new DataTable();
                             adapter.Fill(dt);
 
+                            // --- PLACE IT RIGHT HERE ---
+                            dgvOrderDetails.Columns.Clear();
+                            dgvOrderDetails.AutoGenerateColumns = true;
+
                             // Bind the result straight to your DataGridView
                             dgvOrderDetails.DataSource = dt;
                         }
                     }
                 }
 
-                // Optional: Adjust column layouts so they stretch cleanly across the control
                 dgvOrderDetails.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
             catch (Exception ex)

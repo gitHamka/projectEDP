@@ -21,54 +21,8 @@ namespace projectEDP.ui.user
 
         private void UserDashboard_Load(object sender, EventArgs e)
         {
-            LoadPastOrders();
+           
         }
-
-        private void LoadPastOrders()
-        {
-            string query = @"SELECT order_id AS ""Order ID"", 
-                                    category AS ""Category"", 
-                                    services AS ""Service Type"", 
-                                    total_price AS ""Total Price"", 
-                                    notes AS ""Special Notes"", 
-                                    status AS ""Status"" 
-                             FROM orders 
-                             WHERE customer_id = @customerId 
-                             ORDER BY order_id DESC;";
-
-            try
-            {
-                using (NpgsqlConnection conn = DatabaseHelper.GetConnection())
-                {
-                    conn.Open();
-                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@customerId", currentCustomerId);
-
-                        using (NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd))
-                        {
-                            DataTable dt = new DataTable();
-                            adapter.Fill(dt);
-
-                            // Automatically updates the UI grid display
-                            dgvOrders.DataSource = dt;
-                        }
-                    }
-                }
-
-                // Adjust column rendering properties
-                if (dgvOrders.Columns["Total Price"] != null)
-                {
-                    dgvOrders.Columns["Total Price"].DefaultCellStyle.Format = "RM 0.00";
-                }
-                dgvOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Failed to load your order history: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void btnLogout_Click(object sender, EventArgs e)
         {
             Form1 loginForm = new Form1();
@@ -91,5 +45,27 @@ namespace projectEDP.ui.user
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OrderHistory historyForm = new OrderHistory(this.currentCustomerId);
+            historyForm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            UserProfile profileForm = new UserProfile(this.currentCustomerId);
+            profileForm.Show();
+        }
+
+        private void UserDashboard_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Ensures the application process terminates completely if the window is closed directly
+            if (Application.OpenForms.Count == 0 || (Application.OpenForms.Count == 1 && Application.OpenForms[0] is Form1 == false))
+            {
+                Application.Exit();
+            }
+        }
+
     }
 }

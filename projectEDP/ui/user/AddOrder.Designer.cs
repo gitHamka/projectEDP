@@ -46,7 +46,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Arial Rounded MT Bold", 24F, FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(210, 9);
+            label1.Location = new Point(167, 9);
             label1.Name = "label1";
             label1.Size = new Size(248, 46);
             label1.TabIndex = 0;
@@ -57,7 +57,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Arial Rounded MT Bold", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(12, 91);
+            label2.Location = new Point(12, 66);
             label2.Name = "label2";
             label2.Size = new Size(157, 32);
             label2.TabIndex = 1;
@@ -68,7 +68,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Arial Rounded MT Bold", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ButtonHighlight;
-            label3.Location = new Point(12, 184);
+            label3.Location = new Point(308, 66);
             label3.Name = "label3";
             label3.Size = new Size(243, 32);
             label3.TabIndex = 2;
@@ -79,40 +79,40 @@
             cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCategory.FormattingEnabled = true;
             cmbCategory.Items.AddRange(new object[] { "Small", "Medium", "Large" });
-            cmbCategory.Location = new Point(12, 126);
+            cmbCategory.Location = new Point(12, 101);
             cmbCategory.Name = "cmbCategory";
-            cmbCategory.Size = new Size(658, 28);
+            cmbCategory.Size = new Size(262, 28);
             cmbCategory.TabIndex = 4;
-            cmbCategory.SelectedIndexChanged += new EventHandler(cmbCategory_SelectedIndexChanged);
+            cmbCategory.SelectedIndexChanged += cmbCategory_SelectedIndexChanged;
             // 
             // btnNext
             // 
             btnNext.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnNext.Location = new Point(512, 500);
+            btnNext.Location = new Point(308, 295);
             btnNext.Name = "btnNext";
-            btnNext.Size = new Size(158, 46);
+            btnNext.Size = new Size(262, 72);
             btnNext.TabIndex = 5;
             btnNext.Text = "Next";
             btnNext.UseVisualStyleBackColor = true;
-            btnNext.Click += new EventHandler(btnNext_Click);
+            btnNext.Click += btnNext_Click;
             // 
             // cmbService
             // 
             cmbService.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbService.FormattingEnabled = true;
             cmbService.Items.AddRange(new object[] { "Wash", "Wash and Dry", "Wash and Dry and Fold" });
-            cmbService.Location = new Point(12, 219);
+            cmbService.Location = new Point(308, 101);
             cmbService.Name = "cmbService";
-            cmbService.Size = new Size(658, 28);
+            cmbService.Size = new Size(262, 28);
             cmbService.TabIndex = 6;
-            cmbService.SelectedIndexChanged += new EventHandler(cmbService_SelectedIndexChanged);
+            cmbService.SelectedIndexChanged += cmbService_SelectedIndexChanged;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Arial Rounded MT Bold", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ButtonHighlight;
-            label4.Location = new Point(12, 463);
+            label4.Location = new Point(12, 295);
             label4.Name = "label4";
             label4.Size = new Size(197, 32);
             label4.TabIndex = 7;
@@ -123,9 +123,9 @@
             lblTotal.AutoSize = true;
             lblTotal.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTotal.ForeColor = SystemColors.ButtonHighlight;
-            lblTotal.Location = new Point(71, 523);
+            lblTotal.Location = new Point(64, 344);
             lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(69, 23);
+            lblTotal.Size = new Size(88, 23);
             lblTotal.TabIndex = 8;
             lblTotal.Text = "RM 0.00";
             // 
@@ -144,7 +144,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Arial Rounded MT Bold", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = SystemColors.ButtonHighlight;
-            label5.Location = new Point(12, 283);
+            label5.Location = new Point(12, 134);
             label5.Name = "label5";
             label5.Size = new Size(110, 32);
             label5.TabIndex = 10;
@@ -152,9 +152,9 @@
             // 
             // txtNotes
             // 
-            txtNotes.Location = new Point(12, 318);
+            txtNotes.Location = new Point(12, 169);
             txtNotes.Name = "txtNotes";
-            txtNotes.Size = new Size(658, 120);
+            txtNotes.Size = new Size(558, 120);
             txtNotes.TabIndex = 11;
             txtNotes.Text = "";
             // 
@@ -163,7 +163,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MidnightBlue;
-            ClientSize = new Size(682, 583);
+            ClientSize = new Size(582, 397);
             Controls.Add(txtNotes);
             Controls.Add(label5);
             Controls.Add(label6);
@@ -177,7 +177,7 @@
             Controls.Add(label1);
             Name = "AddOrder";
             Text = "AddOrder";
-            Load += new EventHandler(AddOrder_Load);
+            Load += AddOrder_Load;
             ResumeLayout(false);
             PerformLayout();
         }
