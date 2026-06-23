@@ -5,8 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Npgsql; // Make sure this is added at the very top of your file
-using projectEDP.core.database; // References your DatabaseHelper namespace
+using Npgsql; 
+using projectEDP.core.database;
 using System.Linq;
 
 
@@ -82,28 +82,27 @@ namespace projectEDP.ui.staff
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            // Clear the text from all input controls
+            
             txtFullName.Clear();
             txtPhone.Clear();
             txtAddress.Clear();
 
-            // Optional: Clear Customer ID if you are displaying it
+            
             txtCustomerID.Clear();
 
-            // Move the blinking cursor back to the first field for convenience
             txtFullName.Focus();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            // 1. Check if Customer ID is provided
+            
             if (string.IsNullOrWhiteSpace(txtCustomerID.Text))
             {
                 MessageBox.Show("Please enter a Customer ID to delete.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // 2. Ask for staff confirmation before destroying data
+           
             DialogResult result = MessageBox.Show($"Are you sure you want to delete Customer ID {txtCustomerID.Text}?",
                 "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
@@ -118,7 +117,7 @@ namespace projectEDP.ui.staff
                         conn.Open();
                         using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
                         {
-                            // Convert ID text to number to match database BIGINT
+                          
                             cmd.Parameters.AddWithValue("@id", Convert.ToInt64(txtCustomerID.Text.Trim()));
 
                             int rowsAffected = cmd.ExecuteNonQuery();
@@ -126,7 +125,7 @@ namespace projectEDP.ui.staff
                             if (rowsAffected > 0)
                             {
                                 MessageBox.Show("Customer profile deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                ClearFields(); // Reset fields using your clear method
+                                ClearFields();
                                 LoadCustomerGrid();
                             }
                             else
@@ -145,10 +144,10 @@ namespace projectEDP.ui.staff
 
         private void txtCustomerID_Leave(object sender, EventArgs e)
         {
-            // 1. Skip if the field is empty
+            
             if (string.IsNullOrWhiteSpace(txtCustomerID.Text)) return;
 
-            // 2. Validate that the input is actually a valid number
+           
             if (!long.TryParse(txtCustomerID.Text.Trim(), out long customerId))
             {
                 MessageBox.Show("Please enter a valid numeric Customer ID.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -156,7 +155,7 @@ namespace projectEDP.ui.staff
                 return;
             }
 
-            // 3. SQL Select query to fetch matching customer details
+            
             string query = "SELECT full_name, phone, address FROM users WHERE user_id = @id;";
 
             try
@@ -172,14 +171,14 @@ namespace projectEDP.ui.staff
                         {
                             if (reader.Read())
                             {
-                                // 4. Record found: Populate the fields
+                            
                                 txtFullName.Text = reader["full_name"].ToString();
                                 txtPhone.Text = reader["phone"].ToString();
                                 txtAddress.Text = reader["address"] != DBNull.Value ? reader["address"].ToString() : "";
                             }
                             else
                             {
-                                // 5. Record not found: Clear fields except the ID so they can create a new record
+                               
                                 MessageBox.Show("No customer found with this ID.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 txtFullName.Clear();
                                 txtPhone.Clear();
@@ -201,16 +200,16 @@ namespace projectEDP.ui.staff
 
             if (adminDashboard != null)
             {
-                adminDashboard.Show(); // Bring back the existing AdminDashboard
+                adminDashboard.Show(); 
             }
             else
             {
-                // Fallback: If AdminDashboard was closed completely, create a new one
+                
                 AdminDashboard newDashboard = new AdminDashboard();
                 newDashboard.Show();
             }
 
-            // 2. Close this current AdminOrders form instead of hiding it to free up memory
+           
             this.Close();
         }
 
@@ -247,7 +246,7 @@ namespace projectEDP.ui.staff
 
         private void ExecuteSystemAnalytics()
         {
-            // Instantiate 2 lambdas matching our delegates
+       
             OrderLogger logAction = (info) => Console.WriteLine($"[ANALYTICS LINK]: {info}");
             PremiumTaxEngine taxCalc = (val) => val * 1.06m;
 
@@ -261,28 +260,21 @@ namespace projectEDP.ui.staff
                 new OrderAuditItem { Id = "ORD-04", Price = 50.00m, Status = "In Progress", Category = "Large" }
             };
 
-            // 1. Where 
+            
             var pendingOrders = dataset.Where(x => x.Status == "Pending").ToList();
 
-            // 2. Select 
             var pricesList = dataset.Select(x => x.Price).ToList();
 
-            // 3. OrderBy 
             var sortedByPrice = dataset.OrderByDescending(x => x.Price).ToList();
 
-            // 4. Sum 
             decimal collectiveRevenue = dataset.Sum(x => x.Price);
 
-            // 5. Average 
             decimal averageReceiptValue = dataset.Average(x => x.Price);
 
-            // 6. Count 
             int activeWorkloadCount = dataset.Count(x => x.Status == "In Progress");
 
-            // 7. GroupBy 
             var groupedOutput = dataset.GroupBy(x => x.Category).ToList();
 
-            // 8. Any 
             bool containsHighValueOrders = dataset.Any(x => x.Price > 40.00m);
 
             logAction($"Analytics running state tracking indicator result: {containsHighValueOrders}");
@@ -311,7 +303,7 @@ namespace projectEDP.ui.staff
                 }
                 else
                 {
-                    // Real-time grid sorting filtering matching structural ID layout or name assignments
+
                     dt.DefaultView.RowFilter = string.Format(
                         "Convert([Customer ID], 'System.String') LIKE '%{0}%' OR [Full Name] LIKE '%{0}%'",
                         filterText

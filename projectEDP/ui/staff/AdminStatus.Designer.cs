@@ -366,7 +366,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MidnightBlue;
-            ClientSize = new Size(682, 725);
+            ClientSize = new Size(678, 725);
             Controls.Add(panel3);
             Controls.Add(panel4);
             Controls.Add(panel2);
@@ -388,7 +388,9 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "AdminStatus";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminStatus";
             Load += AdminStatus_Load;
             ((System.ComponentModel.ISupportInitialize)dgvActiveOrders).EndInit();

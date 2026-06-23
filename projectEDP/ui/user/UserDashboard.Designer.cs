@@ -101,7 +101,9 @@
             Controls.Add(btnLogout);
             Controls.Add(btnAdd);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "UserDashboard";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "UserDashboard";
             Load += UserDashboard_Load;
             ResumeLayout(false);

@@ -28,7 +28,6 @@ namespace projectEDP.ui.user
             Form1 loginForm = new Form1();
             loginForm.Show();
 
-            // Close the dashboard completely to terminate the current session context
             this.Close();
         }
 
@@ -61,7 +60,7 @@ namespace projectEDP.ui.user
 
         private void UserDashboard_FormClosed(object sender, FormClosedEventArgs e)
         {
-            // Ensures the application process terminates completely if the window is closed directly
+            
             if (Application.OpenForms.Count == 0 || (Application.OpenForms.Count == 1 && Application.OpenForms[0] is Form1 == false))
             {
                 Application.Exit();

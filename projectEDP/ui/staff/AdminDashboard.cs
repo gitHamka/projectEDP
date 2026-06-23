@@ -48,12 +48,10 @@ namespace projectEDP.ui.staff
                     }
                 }
 
-                // LINQ Aggregates calculating data straight from memory list array states
                 decimal totalRevenue = workingList.Sum(m => m.Amount);
                 int pendingCount = workingList.Count(m => m.Status.Equals("Pending", StringComparison.OrdinalIgnoreCase));
                 int completedCount = workingList.Count(m => m.Status.Equals("Completed", StringComparison.OrdinalIgnoreCase));
 
-                // Bind computational results safely to labels
                 if (lblTotalEarnings != null) lblTotalEarnings.Text = $"RM {totalRevenue:F2}";
                 if (lblPendingOrders != null) lblPendingOrders.Text = pendingCount.ToString();
                 if (lblCompletedOrders != null) lblCompletedOrders.Text = completedCount.ToString();
@@ -88,7 +86,6 @@ namespace projectEDP.ui.staff
             Form1 loginForm = new Form1();
             loginForm.Show();
 
-            // Close the dashboard completely to terminate the current session context
             this.Close();
         }
     }

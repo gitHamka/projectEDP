@@ -87,7 +87,9 @@
             Controls.Add(btnProceed);
             Controls.Add(btnBack);
             Controls.Add(dgvOrderDetails);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "ProceedPayment";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ProceedPayment";
             Load += ProceedPayment_Load;
             ((System.ComponentModel.ISupportInitialize)dgvOrderDetails).EndInit();

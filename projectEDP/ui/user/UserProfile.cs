@@ -34,7 +34,6 @@ namespace projectEDP.ui.user
                         {
                             if (reader.Read())
                             {
-                                // Automatically pre-fill the text boxes with data from the database
                                 txtFullName.Text = reader["full_name"].ToString();
                                 txtPhone.Text = reader["phone"].ToString();
                                 txtAddress.Text = reader["address"] != DBNull.Value ? reader["address"].ToString() : "";

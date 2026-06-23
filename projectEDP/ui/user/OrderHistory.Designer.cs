@@ -97,7 +97,9 @@
             Controls.Add(btnDownloadReceipt);
             Controls.Add(dgvHistory);
             Controls.Add(cmbStatusFilter);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "OrderHistory";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "OrderHistory";
             Load += OrderHistory_Load;
             ((System.ComponentModel.ISupportInitialize)dgvHistory).EndInit();

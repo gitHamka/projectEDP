@@ -126,7 +126,9 @@
             Controls.Add(txtAddress);
             Controls.Add(txtPhone);
             Controls.Add(txtFullName);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "UserProfile";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "UserProfile";
             Load += UserProfile_Load;
             ResumeLayout(false);

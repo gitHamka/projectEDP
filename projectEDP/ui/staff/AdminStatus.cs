@@ -63,7 +63,6 @@ namespace projectEDP.ui.staff
 
         private void LoadActiveOrdersGrid()
         {
-            // CHANGED: Reading direct text column 'services' and joining to 'users' via 'user_id'
             string query = @"SELECT o.order_id AS ""Order ID"", u.full_name AS ""Customer"", 
                                     o.services AS ""Service"", o.status AS ""Status"", 
                                     o.date_in AS ""Date In""
@@ -91,7 +90,6 @@ namespace projectEDP.ui.staff
 
         private void LoadOverdueOrdersGrid()
         {
-            // CHANGED: Joined with 'users' on 'user_id'
             string query = @"SELECT o.order_id AS ""Order ID"", u.full_name AS ""Customer"", 
                                     (CURRENT_DATE - o.date_in::date) AS ""Days Overdue""
                              FROM orders o
@@ -186,8 +184,7 @@ namespace projectEDP.ui.staff
         private void txtSearchOrderID_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtSearchOrderID.Text)) return;
-
-            // CHANGED: Updated target parameters to select 'services' directly 
+ 
             string query = @"SELECT u.full_name, o.services, o.status, o.notes 
                              FROM orders o
                              JOIN users u ON o.customer_id = u.user_id
@@ -244,73 +241,61 @@ namespace projectEDP.ui.staff
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            // The higher the number, the more curved the corner
             int cornerRadius = 30;
 
             System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
 
-            // Create a rounded rectangle path
             path.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90);
             path.AddArc(panel1.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90);
             path.AddArc(panel1.Width - cornerRadius, panel1.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90);
             path.AddArc(0, panel1.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90);
             path.CloseAllFigures();
 
-            // Apply the curved shape to the panel
             panel1.Region = new System.Drawing.Region(path);
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
-            // The higher the number, the more curved the corner
             int cornerRadius = 30;
 
             System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
 
-            // Create a rounded rectangle path
             path.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90);
             path.AddArc(panel2.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90);
             path.AddArc(panel2.Width - cornerRadius, panel2.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90);
             path.AddArc(0, panel2.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90);
             path.CloseAllFigures();
 
-            // Apply the curved shape to the panel
             panel2.Region = new System.Drawing.Region(path);
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
-            // The higher the number, the more curved the corner
             int cornerRadius = 30;
 
             System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
 
-            // Create a rounded rectangle path
             path.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90);
             path.AddArc(panel3.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90);
             path.AddArc(panel3.Width - cornerRadius, panel3.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90);
             path.AddArc(0, panel3.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90);
             path.CloseAllFigures();
 
-            // Apply the curved shape to the panel
             panel3.Region = new System.Drawing.Region(path);
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
-            // The higher the number, the more curved the corner
             int cornerRadius = 30;
 
             System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
 
-            // Create a rounded rectangle path
             path.AddArc(0, 0, cornerRadius, cornerRadius, 180, 90);
             path.AddArc(panel4.Width - cornerRadius, 0, cornerRadius, cornerRadius, 270, 90);
             path.AddArc(panel4.Width - cornerRadius, panel4.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90);
             path.AddArc(0, panel4.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90);
             path.CloseAllFigures();
 
-            // Apply the curved shape to the panel
             panel4.Region = new System.Drawing.Region(path);
         }
 

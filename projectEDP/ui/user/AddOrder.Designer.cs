@@ -187,7 +187,9 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "AddOrder";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AddOrder";
             Load += AddOrder_Load;
             ResumeLayout(false);

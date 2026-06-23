@@ -166,7 +166,9 @@
             Controls.Add(btnManage);
             Controls.Add(btnStatus);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "AdminDashboard";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminDashboard";
             Load += AdminDashboard_Load;
             ResumeLayout(false);

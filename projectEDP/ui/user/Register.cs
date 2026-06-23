@@ -24,7 +24,6 @@ namespace projectEDP
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            // 1. Basic Validation check to ensure no field is empty
             if (string.IsNullOrWhiteSpace(txtUsername.Text) ||
                 string.IsNullOrWhiteSpace(txtName.Text) ||
                 string.IsNullOrWhiteSpace(txtPhone.Text) ||
@@ -35,7 +34,6 @@ namespace projectEDP
                 return;
             }
 
-            // 2. FIXED: Removed 'email' column and '@email' parameter from the schema insert text
             string query = @"INSERT INTO users (username, full_name, phone, password, address) 
                  VALUES (@username, @name, @phone, @password, @address);";
 
@@ -46,7 +44,6 @@ namespace projectEDP
                     conn.Open();
                     using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
                     {
-                        // Map the text boxes to your database parameters
                         cmd.Parameters.AddWithValue("@username", txtUsername.Text.Trim());
                         cmd.Parameters.AddWithValue("@name", txtName.Text.Trim());
                         cmd.Parameters.AddWithValue("@phone", txtPhone.Text.Trim());
@@ -60,7 +57,6 @@ namespace projectEDP
                             MessageBox.Show("Registration successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             ClearForm();
 
-                            // Navigate back to the Login form safely
                             Form form1 = Application.OpenForms["Form1"];
                             if (form1 != null)
                             {
@@ -100,13 +96,10 @@ namespace projectEDP
 
         private void lblLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // 1. Instantiate the login form
             Form1 loginForm = new Form1();
 
-            // 2. Show the login form
             loginForm.Show();
 
-            // 3. Close the current registration window completely
             this.Close();
         }
 

@@ -55,11 +55,9 @@ namespace projectEDP
                             DataTable dt = new DataTable();
                             adapter.Fill(dt);
 
-                            // --- PLACE IT RIGHT HERE ---
                             dgvOrderDetails.Columns.Clear();
                             dgvOrderDetails.AutoGenerateColumns = true;
 
-                            // Bind the result straight to your DataGridView
                             dgvOrderDetails.DataSource = dt;
                         }
                     }
@@ -85,13 +83,12 @@ namespace projectEDP
             UserDashboard dashboardForm = new UserDashboard(this.currentCustomerId);
             dashboardForm.Show();
 
-            // Close the current payment window
             this.Close();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            // Uses the currentCustomerId stored during form initialization instead of querying the database
+           
             if (this.currentCustomerId > 0)
             {
                 AddOrder orderForm = new AddOrder(this.currentCustomerId);

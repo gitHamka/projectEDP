@@ -136,7 +136,9 @@ namespace projectEDP
             Controls.Add(txtUsername);
             Controls.Add(Title);
             Controls.Add(pbLogo);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Main Form";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pbLogo).EndInit();

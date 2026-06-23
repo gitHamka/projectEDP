@@ -84,14 +84,12 @@ namespace projectEDP
                 return;
             }
 
-            // Fallback safe check for customer ID constraint properties
             if (currentCustomerId <= 0)
             {
                 MessageBox.Show("Invalid session context. Please log in again.", "Session Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Generate a unique Order ID string sequence
             string orderId = "ORD-" + DateTime.Now.ToString("yyyyMMddHHmmss");
 
             string query = @"INSERT INTO orders (order_id, customer_id, category, services, total_price, notes, status) 
@@ -116,7 +114,6 @@ namespace projectEDP
                     }
                 }
 
-                // FIX: Added 'this.currentCustomerId' as the third argument matching the new constructor signature
                 ProceedPayment paymentForm = new ProceedPayment(orderId, totalAmount, this.currentCustomerId);
                 paymentForm.Show();
                 this.Close();

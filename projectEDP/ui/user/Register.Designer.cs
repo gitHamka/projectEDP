@@ -206,7 +206,9 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Register";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Register";
             Load += Register_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
