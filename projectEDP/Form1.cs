@@ -12,6 +12,8 @@ namespace projectEDP
             InitializeComponent();
             this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(Form1_KeyDown);
+
+            this.FormClosing += new FormClosingEventHandler(Form1_FormClosing);
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)

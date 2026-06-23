@@ -36,6 +36,7 @@ namespace projectEDP.ui.user
         {
             AddOrder orderForm = new AddOrder(this.currentCustomerId);
             orderForm.Show();
+            this.Close();
 
         }
 
@@ -48,12 +49,14 @@ namespace projectEDP.ui.user
         {
             OrderHistory historyForm = new OrderHistory(this.currentCustomerId);
             historyForm.Show();
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             UserProfile profileForm = new UserProfile(this.currentCustomerId);
             profileForm.Show();
+            this.Close();
         }
 
         private void UserDashboard_FormClosed(object sender, FormClosedEventArgs e)

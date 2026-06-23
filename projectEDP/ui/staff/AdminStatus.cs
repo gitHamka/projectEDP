@@ -32,11 +32,11 @@ namespace projectEDP.ui.staff
         private void LoadStatusCounters()
         {
             string query = @"SELECT 
-                                COUNT(CASE WHEN status = 'Pending' THEN 1 END) as pending,
-                                COUNT(CASE WHEN status = 'In progress' THEN 1 END) as progress,
-                                COUNT(CASE WHEN status = 'Ready for pickup' THEN 1 END) as ready,
-                                COUNT(CASE WHEN status = 'Completed' AND date_in::date = CURRENT_DATE THEN 1 END) as completed
-                             FROM orders;";
+                        COUNT(CASE WHEN status = 'Pending' THEN 1 END) as pending,
+                        COUNT(CASE WHEN status = 'In Progress' THEN 1 END) as progress,
+                        COUNT(CASE WHEN status = 'Ready for Pickup' THEN 1 END) as ready,
+                        COUNT(CASE WHEN status = 'Completed' AND date_in::date = CURRENT_DATE THEN 1 END) as completed
+                     FROM orders;";
             try
             {
                 using (NpgsqlConnection conn = DatabaseHelper.GetConnection())

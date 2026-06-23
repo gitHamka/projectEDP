@@ -1,5 +1,6 @@
 ﻿using Npgsql;
 using projectEDP.core.database;
+using projectEDP.ui.user;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -128,6 +129,8 @@ namespace projectEDP
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            UserDashboard dashboardForm = new UserDashboard(this.currentCustomerId);
+            dashboardForm.Show();
             this.Close();
         }
     }

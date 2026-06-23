@@ -87,6 +87,8 @@ namespace projectEDP.ui.user
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            UserDashboard dashboardForm = new UserDashboard(this.currentCustomerId);
+            dashboardForm.Show();
             this.Close();
         }
     }
