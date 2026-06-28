@@ -79,7 +79,7 @@
             // 
             cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCategory.FormattingEnabled = true;
-            cmbCategory.Items.AddRange(new object[] { "Small", "Medium", "Large" });
+            cmbCategory.Items.AddRange(new object[] { "Small", "Medium (service * RM1.20)", "Large (service * RM1.50)" });
             cmbCategory.Location = new Point(12, 101);
             cmbCategory.Name = "cmbCategory";
             cmbCategory.Size = new Size(262, 28);
@@ -101,7 +101,7 @@
             // 
             cmbService.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbService.FormattingEnabled = true;
-            cmbService.Items.AddRange(new object[] { "Wash", "Wash and Dry", "Wash and Dry and Fold" });
+            cmbService.Items.AddRange(new object[] { "Wash - RM8", "Wash and Dry - RM16", "Wash and Dry and Fold - RM25" });
             cmbService.Location = new Point(308, 101);
             cmbService.Name = "cmbService";
             cmbService.Size = new Size(262, 28);

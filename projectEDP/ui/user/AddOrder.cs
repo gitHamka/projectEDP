@@ -51,15 +51,15 @@ namespace projectEDP
             decimal basePrice = 0.00m;
             string selectedService = cmbService.SelectedItem?.ToString() ?? "";
 
-            if (selectedService == "Wash") basePrice = 8.00m;
-            else if (selectedService == "Wash and Dry") basePrice = 16.00m;
-            else if (selectedService == "Wash and Dry and Fold") basePrice = 25.00m;
+            if (selectedService == "Wash - RM8") basePrice = 8.00m;
+            else if (selectedService == "Wash and Dry - RM16") basePrice = 16.00m;
+            else if (selectedService == "Wash and Dry and Fold - RM25") basePrice = 25.00m;
 
             decimal multiplier = 1.00m;
             string selectedCategory = cmbCategory.SelectedItem?.ToString() ?? "";
 
-            if (selectedCategory == "Medium") multiplier = 1.20m;
-            else if (selectedCategory == "Large") multiplier = 1.50m;
+            if (selectedCategory == "Medium (service * RM1.20)") multiplier = 1.20m;
+            else if (selectedCategory == "Large (service * RM1.50)") multiplier = 1.50m;
 
             totalAmount = basePrice * multiplier;
             lblTotal.Text = $"RM {totalAmount:F2}";
